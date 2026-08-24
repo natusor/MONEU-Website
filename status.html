@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self';
+               style-src 'unsafe-inline';
+               base-uri 'none'; form-action 'none';
+               frame-ancestors 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Status · MONEU</title>
+<style>
+    :root { --bg:#000; --fg:#fff; --dim:#c8c8c8; --line:#3a3a3a; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+        background:var(--bg); color:var(--fg);
+        font-family: ui-monospace,"DejaVu Sans Mono","Courier New",monospace;
+        font-size:17px; font-weight:700; line-height:1.85;
+    }
+    main { max-width:760px; margin:0 auto; padding:6vh 22px 12vh; }
+    h1 { font-size:1.5rem; letter-spacing:0.3em; margin-bottom:2.2rem; }
+    .row {
+        display:flex; gap:1rem; padding:0.5rem 0;
+        border-bottom:1px solid var(--line); word-break:break-all;
+    }
+    .key { color:var(--dim); min-width:11rem; }
+    .back {
+        display:inline-block; border:1px solid var(--line); color:var(--dim);
+        font:inherit; font-size:0.88rem; font-weight:700;
+        letter-spacing:0.16em; padding:0.45rem 1.1rem; margin-top:2.5rem;
+        text-decoration:none;
+    }
+    .back:hover, .back:focus { color:var(--fg); border-color:var(--fg); outline:none; }
+</style>
+</head>
+<body>
+<img class="logo" src="logo.png" alt="MONEU">
+
+<main>
+    <h1>NETWORK STATUS</h1>
+
+    <div class="row"><span class="key">Name</span><span>MONEU</span></div>
+    <div class="row"><span class="key">Ticker</span><span>MONEU</span></div>
+    <div class="row"><span class="key">Type</span><span>Blockchain network</span></div>
+    <div class="row"><span class="key">Consensus</span><span>Proof of work, single SHA-256</span></div>
+    <div class="row"><span class="key">Status</span><span>Experimental</span></div>
+    <div class="row"><span class="key">Block time</span><span>600 seconds</span></div>
+    <div class="row"><span class="key">Max supply</span><span>30000000 MONEU</span></div>
+    <div class="row"><span class="key">Smallest unit</span><span>wage, 1 MONEU = 100000000 wage</span></div>
+    <div class="row"><span class="key">P2P port</span><span>8327</span></div>
+    <div class="row"><span class="key">RPC port</span><span>8328</span></div>
+    <div class="row"><span class="key">Coin type</span><span>8328</span></div>
+    <div class="row"><span class="key">Source code</span><span>github.com/natusor/MONEU</span></div>
+    <div class="row"><span class="key">White paper</span><span>github.com/natusor/MONEU-White-Paper</span></div>
+
+    <a class="back" href="index.html">BACK</a>
+</main>
+</body>
+</html>
