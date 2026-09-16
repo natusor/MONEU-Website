@@ -27,7 +27,7 @@ body{
   font-family:"DejaVu Sans Mono","Liberation Mono",ui-monospace,Menlo,Consolas,monospace;
   font-size:16px; font-weight:700; line-height:1.8;
 }
-.wrap{max-width:80ch;margin:0 auto;padding:2.6rem 1.6rem 7rem}
+.wrap{max-width:96ch;margin:0 auto;padding:2.6rem 1.6rem 7rem}
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
      padding-bottom:1.3rem;border-bottom:1px solid var(--rule);
@@ -40,33 +40,34 @@ body{
 }
 
 h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font-weight:700;
-   letter-spacing:-0.01em;margin-bottom:1.3rem;max-width:26ch}
-p{max-width:72ch;margin-bottom:1rem}
-.stand{margin-bottom:2rem;max-width:62ch}
+   letter-spacing:-0.01em;margin-bottom:1.3rem;max-width:30ch}
+p{max-width:80ch;margin-bottom:1rem}
+.stand{margin-bottom:2rem;max-width:70ch}
 
 h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
    margin:3.6rem 0 1rem;padding-bottom:0.45rem;
    border-bottom:1px solid var(--rule)}
 
 
-pre{background:var(--panel);padding:1rem 1.15rem;margin:1.2rem 0;
+pre{background:var(--panel);padding:1rem 1.35rem;margin:1.2rem 0;
     overflow-x:auto;font:inherit;font-size:0.85rem;line-height:1.7}
 pre b{color:var(--quiet);font-weight:700}
 pre.dump{background:#000;color:#fff;border:none;text-align:center;
-         font-size:clamp(0.42rem,2.02vw,2.1rem);
-         font-weight:700;line-height:1.75;letter-spacing:0;
-         padding:3.4rem 0 3.6rem;
-         width:100vw;margin-left:calc(50% - 50vw);
-         margin-top:3rem;margin-bottom:3rem;
+         font-size:clamp(0.38rem,1.16vw,0.86rem);
+         font-weight:700;line-height:1.3;letter-spacing:0;
+         padding:1.5rem 1.2rem 1.7rem;
+         margin:2.2rem -2rem 2rem;
          overflow-x:auto}
-pre.dump .t1{display:block;font-size:clamp(1.2rem,3.4vw,3.4rem);font-weight:700;
+pre.dump .t1{display:block;font-size:clamp(1rem,1.7vw,1.5rem);font-weight:700;
              letter-spacing:0.12em;line-height:1.3;color:#fff}
-pre.dump .t2{display:block;font-size:clamp(0.85rem,1.9vw,1.9rem);font-weight:700;
-             letter-spacing:0.14em;line-height:1.8;margin-bottom:1.6rem;color:#fff}
+pre.dump .t2{display:block;font-size:clamp(0.72rem,1vw,0.95rem);font-weight:700;
+             letter-spacing:0.14em;line-height:1.5;margin-bottom:0.9rem;color:#fff}
 pre.dump .body{display:inline-block;text-align:left}
+@media (max-width:1060px){pre.dump{margin-left:0;margin-right:0;
+  padding:1.8rem 0.8rem 2rem}}
 code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
 
-details{margin:1.2rem 0;max-width:72ch}
+details{margin:1.2rem 0;max-width:82ch}
 details summary{cursor:pointer;list-style:none;
   background:var(--panel);padding:0.7rem 1.15rem;
   font-size:0.85rem;letter-spacing:0.08em;color:var(--quiet);
@@ -80,7 +81,6 @@ details summary:hover,details summary:focus{color:var(--accent);
 details[open] summary{border-left-color:var(--accent);color:var(--accent)}
 details pre{margin:0}
 
-.buttons{text-align:center;margin:2.2rem 0 1rem}
 .actions{display:flex;flex-wrap:wrap;justify-content:center;
          gap:0.7rem;margin:2.2rem 0 1rem}
 a.go{display:inline-block;background:var(--ink);color:var(--paper);
@@ -95,20 +95,20 @@ a.plain{color:var(--ink);text-decoration:underline;
 a.plain:hover,a.plain:focus{text-decoration-color:var(--accent);
                             color:var(--accent);outline:none}
 
-dl{max-width:66ch}
+dl{max-width:76ch}
 dl div{display:flex;gap:1.2rem;padding:0.45rem 0;
        border-bottom:1px solid var(--rule)}
 dt{color:var(--quiet);flex:0 0 16ch;font-size:0.88rem}
 dd{font-size:0.88rem;word-break:break-word}
 
-ul{max-width:70ch;list-style:none;margin-bottom:1.2rem}
+ul{max-width:80ch;list-style:none;margin-bottom:1.2rem}
 li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 
 .note{background:var(--panel);padding:0.9rem 1.1rem;
-      max-width:66ch;margin:1.6rem 0}
+      max-width:76ch;margin:1.6rem 0}
 
 footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
-       color:var(--quiet);font-size:0.85rem;max-width:66ch}
+       color:var(--quiet);font-size:0.85rem;max-width:76ch}
 
 @media (max-width:560px){
   body{font-size:15px}
@@ -134,12 +134,10 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 <p class="stand">A proof of work blockchain. The mining software comes with
 the node. Get it running and you can start on your own computer right away.</p>
 
-<div class="buttons">
 <div class="actions">
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU">SOURCE CODE</a>
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
-</div>
 </div>
 
 <pre class="dump"><span class="t1">MONEU Genesis Block</span>
@@ -256,19 +254,16 @@ you much less than sweeping up twenty small ones.</li>
 
 <h2>SHIELD</h2>
 
-<p>MONEU guards your coins. Only you can send them. Even somebody with a
-quantum computer who works out your private key cannot move anything. They
-would need your noise file and only you have that.</p>
+<p>Only you can send your coins. Somebody who works out your private key,
+even with a quantum computer, still cannot move anything without your noise
+file, and that file never leaves your machine.</p>
 
 <p>Keep it on a drive you unplug. Plug it in when you pay somebody and unplug
-it after.</p>
+it afterwards.</p>
 
-<p>The interesting part is not who finds blocks fastest. It is who builds the
-better source of noise.</p>
-
-<p>The rules do not check where the entropy came from. Only that the proof
-holds. So you can build a better collector without breaking anything for
-anyone else.</p>
+<p>Anyone can build an external device that collects entropy and feed it into
+their wallet. The consensus rules stay the same, so nothing has to change for
+anybody else.</p>
 
 <h2>SPECS</h2>
 
