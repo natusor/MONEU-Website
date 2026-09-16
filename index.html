@@ -33,9 +33,12 @@ body{
      padding-bottom:1.3rem;border-bottom:1px solid var(--rule);
      margin-bottom:3.4rem}
 .wordmark{font-size:2rem;font-weight:700;letter-spacing:0.42em}
+.tag{font-size:0.72rem;font-weight:700;letter-spacing:0.22em;
+     color:var(--quiet);margin-top:0.3rem}
 .top img{width:184px;height:auto;display:block;flex:0 0 auto}
 @media (max-width:480px){
   .wordmark{font-size:1.3rem;letter-spacing:0.28em}
+  .tag{font-size:0.55rem;letter-spacing:0.14em}
   .top img{width:112px}
 }
 
@@ -125,14 +128,17 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 <div class="wrap">
 
 <div class="top">
-  <div class="wordmark">MONEU</div>
+  <div>
+    <div class="wordmark">MONEU</div>
+    <div class="tag">PROOF OF WORK BLOCKCHAIN</div>
+  </div>
   <img src="logo.png" alt="MONEU">
 </div>
 
 <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
 
-<p class="stand">A proof of work blockchain. The mining software comes with
-the node. Get it running and you can start on your own computer right away.</p>
+<p class="stand">The mining software comes with the node. Get it running and
+you can start on your own computer right away.</p>
 
 <div class="actions">
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
