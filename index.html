@@ -201,8 +201,8 @@ An old machine is fine.</p>
 <b>$</b> ./build/src/moneud -daemon</pre>
 </details>
 
-<p>The tests end with <code>ALL TESTS PASSED</code>. The node takes about ten
-minutes to catch up.</p>
+<p>The tests end with <code>ALL TESTS PASSED</code>. The node synchronises
+with the network in about five to ten minutes.</p>
 
 <div class="note">Delete any old <code>build</code> folder before you start.
 CMake works from a clean slate.</div>
@@ -233,36 +233,34 @@ hard on purpose.</p>
 
 <h2>NODES</h2>
 
-<p>A node that never mines a block is still useful. Many small machines hold
-the network up better than a few big ones.</p>
-
-<p>Start it and leave it alone. Nothing else is needed.</p>
+<p>Start your MONEU node and mine solo.</p>
 
 <h2>CARE</h2>
 
 <ul>
-<li>Copy the wallet folder to two drives and encrypt them. The noise file is
-in there. Lose it and the coins are gone. The twenty four words will not help.</li>
-<li>Build the noise file on a real machine. Not a virtual one. The node checks
-the quality first and will say so.</li>
-<li>One wallet per machine. Never two.</li>
-<li>Keep an eye on the leaf counter. When it gets low make a new wallet on
-another machine and send the coins there.</li>
-<li>Every input you spend burns four leaves. Sending one big payment costs
-you much less than sweeping up twenty small ones.</li>
+<li>Copy the whole wallet folder with the noise file inside to another drive.
+If you lose the noise file then the seed phrase will not recover access to
+your coins.</li>
+<li>Build the noise file on a real machine and not on a virtual one. The node
+checks the quality first and will tell you if it is not good enough.</li>
+<li>Keep one wallet per machine and never two.</li>
+<li>Watch the leaf counter. When it runs low make a new wallet on another
+machine and send the coins there.</li>
+<li>Every input you spend burns four leaves. One large payment costs far less
+than sweeping up twenty small ones.</li>
 </ul>
 
 <h2>SHIELD</h2>
 
-<p>Only you can send your coins. Somebody who works out your private key,
-even with a quantum computer, still cannot move anything without your noise
-file, and that file never leaves your machine.</p>
+<p>Only you can send your coins. If somebody works out your private key even
+with a quantum computer they still cannot move anything without your noise
+file and that file never leaves your machine.</p>
 
 <p>Keep it on a drive you unplug. Plug it in when you pay somebody and unplug
 it afterwards.</p>
 
 <p>Anyone can build an external device that collects entropy and feed it into
-their wallet. The consensus rules stay the same, so nothing has to change for
+their wallet. The consensus rules stay the same so nothing has to change for
 anybody else.</p>
 
 <h2>SPECS</h2>
