@@ -185,7 +185,7 @@ you can start on your own computer right away.</p>
 <h2>REQUIREMENTS</h2>
 
 <p>Ubuntu 22.04 or newer. Debian works too. Boost 1.74 or newer is required.
-An old machine is fine.</p>
+An old computer is fine.</p>
 
 <details>
 <summary>DEPENDENCIES</summary>
@@ -216,7 +216,7 @@ CMake works from a clean slate.</div>
 <h2>WALLET</h2>
 
 <p>Write down the twenty four words it prints. Use the same password for both
-commands. Building the noise file takes a few minutes and works the machine
+commands. Building the noise file takes a few minutes and works the computer
 hard on purpose.</p>
 
 <details>
@@ -235,8 +235,6 @@ hard on purpose.</p>
 <b>$</b> ./build/src/moneu-cli getmininginfo</pre>
 </details>
 
-<p>You can also run it through Tor SOCKS on <code>127.0.0.1:9050</code>.</p>
-
 <h2>NODES</h2>
 
 <p>Start your MONEU node and mine solo.</p>
@@ -247,27 +245,27 @@ hard on purpose.</p>
 <li>Copy the whole wallet folder with the noise file inside to another drive.
 If you lose the noise file then the seed phrase will not recover access to
 your coins.</li>
-<li>Build the noise file on a real machine and not on a virtual one. The node
+<li>Build the noise file on a real computer and not on a virtual one. The node
 checks the quality first and will tell you if it is not good enough.</li>
-<li>Keep one wallet per machine and never two.</li>
+<li>Keep one wallet per computer and never two.</li>
 <li>Watch the leaf counter. When it runs low make a new wallet on another
-machine and send the coins there.</li>
-<li>Every input you spend burns four leaves. One large payment costs far less
-than sweeping up twenty small ones.</li>
+computer and send the coins there.</li>
+<li>Every coin you spend uses up four leaves. One coin takes four, twenty
+coins take eighty. Your computer builds a noise file holding 1 048 576
+leaves, which is enough for 262 144 payments.</li>
 </ul>
 
 <h2>SHIELD</h2>
 
 <p>Only you can send your coins. If somebody works out your private key even
 with a quantum computer they still cannot move anything without your noise
-file and that file never leaves your machine.</p>
+file and that file never leaves your computer.</p>
 
-<p>Keep it on a drive you unplug. Plug it in when you pay somebody and unplug
-it afterwards.</p>
+<p>You can keep it on the same drive as the node, or copy it to an external
+drive and plug that in only when you pay somebody.</p>
 
 <p>Anyone can build an external device that collects entropy and feed it into
-their wallet. The consensus rules stay the same so nothing has to change for
-anybody else.</p>
+their wallet.</p>
 
 <h2>SPECS</h2>
 
@@ -284,7 +282,7 @@ anybody else.</p>
 <div><dt>Coin type</dt><dd>8328 registered in SLIP-0044</dd></div>
 </dl>
 
-<p>Mining is the only way coins come into existence. Nobody was handed any.</p>
+<p>Mining is the only way coins come into existence.</p>
 
 <p>The chain has been running non stop since the first block.</p>
 
@@ -320,6 +318,8 @@ logips=false</pre>
 <pre><b>$</b> openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32
 <b>$</b> chmod 600 ~/.moneu/moneu.conf</pre>
 </details>
+
+<p>You can also run the node through Tor SOCKS on <code>127.0.0.1:9050</code>.</p>
 
 <footer>
 Keep a copy of your wallet folder on a separate drive.<br>
