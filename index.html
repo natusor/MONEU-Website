@@ -22,15 +22,19 @@
 <meta name="twitter:image" content="https://moneu.cc/logo.png">
 <style>
 :root{
-  --paper:#f7f7f5;
+  --paper:#f6f9f7;
   --ink:#000000;
   --quiet:#3d3d3b;
-  --rule:#d6d6d2;
-  --panel:#e4e4df;
+  --rule:#d2ddd6;
+  --panel:#e2eae5;
   --mark:#000000;
   --accent:#a0651b;
   --green:#15633a;
   --glow:#2fb36c;
+  --blue:#1d3c5c;
+  --blueglow:#3f7fb0;
+  --amber:#8f5a17;
+  --amberglow:#c98c2e;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -188,7 +192,7 @@ pre.dump .hex-line:hover{background:rgba(255,255,255,0.2);color:#00ff66;
 code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
 
 .actions{display:flex;flex-wrap:wrap;justify-content:center;
-         gap:0.7rem;margin:2.2rem 0 1rem}
+         gap:6rem;margin:2.6rem 0 1.4rem}
 a.go{display:inline-block;color:var(--paper);
      background-color:var(--green);
      background-image:linear-gradient(100deg,
@@ -204,6 +208,20 @@ a.go{display:inline-block;color:var(--paper);
                 background 0.25s cubic-bezier(0.22,0.61,0.36,1),
                 transform 0.25s cubic-bezier(0.22,0.61,0.36,1);
      will-change:transform}
+a.go:nth-child(1){
+  background-color:var(--blue);
+  background-image:linear-gradient(100deg,
+    var(--blue) 0%, var(--blueglow) 30%, var(--blue) 62%, var(--blueglow) 100%);
+}
+a.go:nth-child(3){
+  background-color:var(--amber);
+  background-image:linear-gradient(100deg,
+    var(--amber) 0%, var(--amberglow) 30%, var(--amber) 62%, var(--amberglow) 100%);
+}
+a.go:nth-child(1):hover,a.go:nth-child(1):focus{
+  box-shadow:0 5px 16px rgba(29,60,92,0.3)}
+a.go:nth-child(3):hover,a.go:nth-child(3):focus{
+  box-shadow:0 5px 16px rgba(143,90,23,0.28)}
 a.go:hover,a.go:focus{outline:none;transform:translateY(-2px);
                       box-shadow:0 5px 16px rgba(21,99,58,0.26);
                       filter:brightness(1.08)}
@@ -248,7 +266,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   .wordmark{letter-spacing:0.22em}
   dl div{flex-direction:column;gap:0}
   dt{flex:none}
-  .actions{gap:0.5rem}
+  .actions{gap:1.6rem}
   a.go{font-size:0.78rem;padding:0.7rem 1.1rem;letter-spacing:0.06em}
 }
 
@@ -284,8 +302,8 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 It has its own mining software.</p>
 
 <div class="actions">
-<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU">SOURCE CODE</a>
+<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
 </div>
 
