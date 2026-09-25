@@ -4,11 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline';
+      content="default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'unsafe-inline';
                base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="MONEU is a proof of work blockchain you mine on the computer you already own. The miner is part of the node.">
-<title>MONEU</title>
+<meta name="description" content="MONEU is a proof of work blockchain you mine on the computer you already own. The miner is part of the node. No premine, no presale, open source under MIT.">
+<title>MONEU - proof of work blockchain you mine on your own computer</title>
+<link rel="canonical" href="https://moneu.cc/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MONEU">
+<meta property="og:title" content="MONEU - proof of work blockchain you mine on your own computer">
+<meta property="og:description" content="The miner is part of the node. Mine on the computer you already own, with a processor or a graphics card. No premine, no presale.">
+<meta property="og:url" content="https://moneu.cc/">
+<meta property="og:image" content="https://moneu.cc/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MONEU - proof of work blockchain you mine on your own computer">
+<meta name="twitter:description" content="The miner is part of the node. Mine on the computer you already own, with a processor or a graphics card.">
+<meta name="twitter:image" content="https://moneu.cc/logo.png">
 <style>
 :root{
   --paper:#f4f4f2;
@@ -32,18 +43,99 @@ body{
 .top{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
      padding-bottom:1.3rem;border-bottom:1px solid var(--rule);
      margin-bottom:3.4rem}
-.wordmark{font-size:2rem;font-weight:700;letter-spacing:0.42em}
-.tag{font-size:0.72rem;font-weight:700;letter-spacing:0.22em;
-     color:var(--quiet);margin-top:0.3rem}
-.top img{width:184px;height:auto;display:block;flex:0 0 auto}
+.wordmark{font-size:2rem;font-weight:700;letter-spacing:0.42em;
+          color:var(--green)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .wordmark{
+    background-image:linear-gradient(100deg,
+      var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+    background-size:260% 100%;
+    background-position:0% 50%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+    will-change:background-position;
+  }
+}
+@keyframes sheen{
+  0%   {background-position:0% 50%}
+  50%  {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+.tag{font-size:0.95rem;font-weight:700;letter-spacing:0.16em;
+     color:var(--ink);margin-top:0.5rem}
+.top-logo-wrap{perspective:1000px;flex:0 0 auto}
+.top img{
+  width:184px;height:auto;display:block;
+  transition:transform 1.1s cubic-bezier(0.22,0.61,0.36,1);
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.top-logo-wrap:hover img{transform:rotateY(360deg)}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  margin-top: 0.7rem;
+  background-image: linear-gradient(100deg,
+    var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+  background-size: 260% 100%;
+  background-position: 0% 50%;
+  background: rgba(21, 99, 58, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  border: 1px solid rgba(21, 99, 58, 0.2);
+}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .status-badge{
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+  }
+  .status-badge .pulse-dot{background-color:var(--green)}
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(21, 99, 58, 0.7);
+  animation: pulse 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+@keyframes pulse {
+  0%   { transform: scale(0.94); box-shadow: 0 0 0 0 rgba(21, 99, 58, 0.55); }
+  65%  { transform: scale(1.02); box-shadow: 0 0 0 7px rgba(21, 99, 58, 0); }
+  100% { transform: scale(0.94); box-shadow: 0 0 0 0 rgba(21, 99, 58, 0); }
+}
+
 @media (max-width:480px){
   .wordmark{font-size:1.3rem;letter-spacing:0.28em}
-  .tag{font-size:0.55rem;letter-spacing:0.14em}
+  .tag{font-size:0.7rem;letter-spacing:0.1em}
   .top img{width:112px}
 }
 
 h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font-weight:700;
    letter-spacing:-0.01em;margin-bottom:1.3rem;max-width:30ch}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  h1{
+    background-image:linear-gradient(100deg,
+      var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+    background-size:260% 100%;
+    background-position:0% 50%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+    will-change:background-position;
+  }
+}
 p{max-width:80ch;margin-bottom:1rem}
 .stand{margin-bottom:2rem;max-width:70ch}
 
@@ -51,48 +143,77 @@ h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
    margin:3.6rem 0 1rem;padding-bottom:0.45rem;
    border-bottom:1px solid var(--rule)}
 
+.cmdlabel{font-size:0.78rem;letter-spacing:0.14em;color:var(--quiet);
+          margin:1.4rem 0 0.4rem}
+
+.code-wrapper{position:relative;margin:0.6rem 0 1.4rem;max-width:82ch}
+.dump-wrapper{width:fit-content;max-width:100%;margin:1.4rem auto 1.6rem}
+.dump-wrapper pre.dump{margin:0}
+.code-wrapper pre{margin:0}
+.copy-btn{
+  position:absolute;top:0.5rem;right:0.5rem;
+  color:var(--paper);
+  background-color:var(--green);
+  background-image:linear-gradient(100deg,
+    var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+  background-size:260% 100%;
+  background-position:0% 50%;
+  animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+  border:1px solid transparent;
+  border-radius:6px;
+  font-family:inherit;font-size:0.7rem;font-weight:700;
+  padding:0.22rem 0.6rem;cursor:pointer;letter-spacing:0.08em;
+  transition:color 0.25s cubic-bezier(0.22,0.61,0.36,1),
+             background 0.25s cubic-bezier(0.22,0.61,0.36,1),
+             border-color 0.25s cubic-bezier(0.22,0.61,0.36,1);
+}
+.copy-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
 
 pre{background:var(--panel);padding:1rem 1.35rem;margin:1.2rem 0;
     overflow-x:auto;font:inherit;font-size:0.85rem;line-height:1.7}
 pre b{color:var(--quiet);font-weight:700}
 pre.dump{background:#000;color:#fff;border:none;text-align:center;
-         font-size:clamp(0.38rem,1.16vw,0.86rem);
-         font-weight:700;line-height:1.3;letter-spacing:0;
-         padding:1.5rem 1.2rem 1.7rem;
-         margin:2.2rem -2rem 2rem;
+         font-size:clamp(0.41rem,1.17vw,1.09rem);
+         font-weight:700;line-height:1.18;letter-spacing:0;
+         padding:1rem 1.1rem 1.1rem;
+         margin:1.4rem auto 1.6rem;
+         border-radius:8px;
+         width:fit-content;max-width:100%;
          overflow-x:auto}
-pre.dump .t1{display:block;font-size:clamp(1rem,1.7vw,1.5rem);font-weight:700;
-             letter-spacing:0.12em;line-height:1.3;color:#fff}
-pre.dump .t2{display:block;font-size:clamp(0.72rem,1vw,0.95rem);font-weight:700;
-             letter-spacing:0.14em;line-height:1.5;margin-bottom:0.9rem;color:#fff}
-pre.dump .body{display:inline-block;text-align:left}
-@media (max-width:1060px){pre.dump{margin-left:0;margin-right:0;
-  padding:1.8rem 0.8rem 2rem}}
-code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
+pre.dump .body{display:inline-block;text-align:left;line-height:1.18}
+pre.dump .t1{display:block;font-size:clamp(0.75rem,1.1vw,0.95rem);font-weight:700;
+             letter-spacing:0.12em;line-height:1.4;color:#fff}
+pre.dump .t2{display:block;font-size:clamp(0.55rem,0.75vw,0.7rem);font-weight:700;
+             letter-spacing:0.14em;line-height:1.4;margin-bottom:0.8rem;color:#fff}
+pre.dump .hex-line{display:block;padding:0 4px;
+                   transition:background 0.22s cubic-bezier(0.22,0.61,0.36,1),
+                              color 0.22s cubic-bezier(0.22,0.61,0.36,1)}
+pre.dump .hex-line:hover{background:rgba(255,255,255,0.2);color:#00ff66;
+                         cursor:crosshair}
 
-details{margin:1.2rem 0;max-width:82ch}
-details summary{cursor:pointer;list-style:none;
-  background:var(--panel);padding:0.7rem 1.15rem;
-  font-size:0.85rem;letter-spacing:0.08em;color:var(--quiet);
-  border-left:3px solid var(--rule);
-  transition:color 0.15s,border-color 0.15s}
-details summary::-webkit-details-marker{display:none}
-details summary::before{content:"+  ";font-weight:700}
-details[open] summary::before{content:"\2212  "}
-details summary:hover,details summary:focus{color:var(--accent);
-  border-left-color:var(--accent);outline:none}
-details[open] summary{border-left-color:var(--accent);color:var(--accent)}
-details pre{margin:0}
+@media (max-width:1060px){pre.dump{padding:0.8rem 0.6rem 0.9rem}}
+code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
 
 .actions{display:flex;flex-wrap:wrap;justify-content:center;
          gap:0.7rem;margin:2.2rem 0 1rem}
-a.go{display:inline-block;background:var(--ink);color:var(--paper);
-     border:2px solid var(--ink);
+a.go{display:inline-block;color:var(--paper);
+     background-color:var(--green);
+     background-image:linear-gradient(100deg,
+       var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+     background-size:260% 100%;
+     background-position:0% 50%;
+     animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+     border:2px solid transparent;border-radius:8px;
      text-decoration:none;font:inherit;font-weight:700;font-size:0.85rem;
      letter-spacing:0.1em;padding:0.75rem 1.55rem;
-     transition:color 0.15s,border-color 0.15s,background 0.15s}
-a.go:hover,a.go:focus{background:var(--paper);color:var(--accent);
-                      border-color:var(--accent);outline:none}
+     transition:color 0.25s cubic-bezier(0.22,0.61,0.36,1),
+                border-color 0.25s cubic-bezier(0.22,0.61,0.36,1),
+                background 0.25s cubic-bezier(0.22,0.61,0.36,1),
+                transform 0.25s cubic-bezier(0.22,0.61,0.36,1);
+     will-change:transform}
+a.go:hover,a.go:focus{outline:none;transform:translateY(-2px);
+                      box-shadow:0 5px 16px rgba(21,99,58,0.26);
+                      filter:brightness(1.08)}
 a.plain{color:var(--ink);text-decoration:underline;
         text-decoration-color:var(--rule);text-underline-offset:3px}
 a.plain:hover,a.plain:focus{text-decoration-color:var(--accent);
@@ -110,6 +231,21 @@ li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 .note{background:var(--panel);padding:0.9rem 1.1rem;
       max-width:76ch;margin:1.6rem 0}
 
+.gen-btn{color:var(--paper);
+         background-color:var(--green);
+         background-image:linear-gradient(100deg,
+           var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+         background-size:260% 100%;
+         background-position:0% 50%;
+         animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
+         border:2px solid transparent;border-radius:8px;
+         font-family:inherit;font-size:0.75rem;font-weight:700;
+         padding:0.45rem 0.9rem;cursor:pointer;margin-bottom:0.8rem;
+         transition:color 0.25s cubic-bezier(0.22,0.61,0.36,1),
+                    background 0.25s cubic-bezier(0.22,0.61,0.36,1),
+                    border-color 0.25s cubic-bezier(0.22,0.61,0.36,1)}
+.gen-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
 footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
        color:var(--quiet);font-size:0.85rem;max-width:76ch}
 
@@ -122,6 +258,15 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   .actions{gap:0.5rem}
   a.go{font-size:0.78rem;padding:0.7rem 1.1rem;letter-spacing:0.06em}
 }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+  }
+  .wordmark,h1,.status-badge,a.go,.copy-btn,.gen-btn{background-position:0% 50%}
+}
 </style>
 </head>
 <body>
@@ -131,14 +276,20 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   <div>
     <div class="wordmark">MONEU</div>
     <div class="tag">PROOF OF WORK BLOCKCHAIN</div>
+    <div class="status-badge">
+      <span class="pulse-dot"></span> NETWORK OPERATIONAL
+    </div>
   </div>
-  <img src="logo.png" alt="MONEU">
+  <div class="top-logo-wrap">
+    <img src="logo.png" alt="MONEU logo" width="184" height="184">
+  </div>
 </div>
 
 <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
 
 <p class="stand">The mining software comes with the node. Get it running and
-you can start on your own computer right away.</p>
+you can start on your own computer right away, with the processor or with a
+graphics card.</p>
 
 <div class="actions">
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
@@ -146,66 +297,28 @@ you can start on your own computer right away.</p>
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
 </div>
 
-<pre class="dump"><span class="t1">MONEU Genesis Block</span>
-<span class="t2">Raw Hex Version</span>
 
-<span class="body">00000000   01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000010   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000020   00 00 00 00 43 39 65 88  04 9B 5E 2E 5B 9E 52 72  ....C9e...^.[.Rr
-00000030   0F 19 30 D3 EE EF 64 DE  59 E4 31 E1 82 0A 0A 39  ..0...d.Y.1....9
-00000040   BC 3A 21 64 00 00 00 00  00 00 00 00 00 00 00 00  .:!d............
-00000050   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000060   00 00 00 00 AB 3F 7F 6A  00 00 00 00 00 00 00 00  .....?.j........
-00000070   FF FF 00 1D 60 4B CF 65  01 00 00 00 78 01 00 00  ....`K.e....x...
-00000080   01 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  ................
-00000090   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-000000A0   00 00 00 00 00 00 00 00  FF FF FF FF 00 00 00 00  ................
-000000B0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-000000C0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-000000D0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-000000E0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-000000F0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000100   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000110   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000120   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000130   02 00 00 00 00 AD F4 CA  01 00 00 00 25 76 A8 20  ............%v. 
-00000140   8F B3 11 B4 E4 A0 9E 77  5D 0E 99 10 E2 FF 55 32  .......w].....U2
-00000150   54 69 E8 B7 A0 B7 08 5B  D2 FD 1B 0C 80 A3 16 C5  Ti.....[........
-00000160   88 AC 00 00 00 00 00 00  00 00 85 6A 4C 82 35 34  ...........jL.54
-00000170   36 38 36 35 32 30 34 37  37 35 36 31 37 32 36 34  6865204775617264
-00000180   36 39 36 31 36 65 32 30  35 37 36 35 36 35 36 62  69616e205765656b
-00000190   36 63 37 39 32 30 33 31  33 34 32 66 34 31 37 35  6c792031342f4175
-000001A0   36 37 32 66 33 32 33 30  33 32 33 36 32 30 34 37  672f323032362047
-000001B0   36 66 36 65 36 35 32 30  37 32 36 66 36 37 37 35  6f6e6520726f6775
-000001C0   36 35 33 61 32 30 34 31  34 39 32 30 37 34 37 32  653a204149207472
-000001D0   36 39 36 33 36 62 37 33  32 30 36 39 37 34 37 33  69636b7320697473
-000001E0   32 30 37 34 36 35 37 33  37 34 36 35 37 32 37 33  2074657374657273
-000001F0   00 00 00 00 00 00 00 00                           ........</span></pre>
 
 <h2>REQUIREMENTS</h2>
 
 <p>Ubuntu 22.04 or newer. Debian works too. Boost 1.74 or newer is required.
 An old computer is fine.</p>
 
-<details>
-<summary>DEPENDENCIES</summary>
+<div class="cmdlabel">DEPENDENCIES</div>
 <pre><b>$</b> sudo apt-get install -y build-essential cmake \
     libboost-filesystem-dev libboost-system-dev \
     libboost-thread-dev libboost-program-options-dev \
     libssl-dev libleveldb-dev nlohmann-json3-dev</pre>
-</details>
 
 <h2>INSTALL</h2>
 
-<details>
-<summary>BUILD AND START</summary>
+<div class="cmdlabel">BUILD AND START</div>
 <pre><b>$</b> git clone https://github.com/natusor/MONEU.git
 <b>$</b> cd MONEU
 <b>$</b> cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 <b>$</b> cmake --build build -j$(nproc)
 <b>$</b> ./build/src/moneu-test-noise
 <b>$</b> ./build/src/moneud -daemon</pre>
-</details>
 
 <p>The tests end with <code>ALL TESTS PASSED</code>. The node synchronises
 with the network in about five to ten minutes.</p>
@@ -219,21 +332,23 @@ CMake works from a clean slate.</div>
 commands. Building the noise file takes a few minutes and works the computer
 hard on purpose.</p>
 
-<details>
-<summary>WALLET COMMANDS</summary>
+<div class="cmdlabel">WALLET COMMANDS</div>
 <pre><b>$</b> ./build/src/moneu-cli createwallet "your-password"
 <b>$</b> ./build/src/moneu-cli makenoise "your-password"
 <b>$</b> ./build/src/moneu-cli walletunlock "your-password"
 <b>$</b> ./build/src/moneu-cli getnewaddress</pre>
-</details>
 
 <h2>MINING</h2>
 
-<details>
-<summary>MINING COMMANDS</summary>
+<p>Give the number of threads to mine with the processor, or add
+<code>gpu</code> at the end to mine with a graphics card. GPU mining needs an
+OpenCL driver. Most gaming machines already have one.</p>
+
+<div class="cmdlabel">MINING COMMANDS</div>
 <pre><b>$</b> ./build/src/moneu-cli startmining YOUR-ADDRESS 2
-<b>$</b> ./build/src/moneu-cli getmininginfo</pre>
-</details>
+<b>$</b> ./build/src/moneu-cli startmining YOUR-ADDRESS gpu
+<b>$</b> ./build/src/moneu-cli getmininginfo
+<b>$</b> ./build/src/moneu-cli stopmining</pre>
 
 <h2>NODES</h2>
 
@@ -288,12 +403,14 @@ their wallet.</p>
 
 <h2>CONFIG</h2>
 
-<p>Put this in <code>~/.moneu/moneu.conf</code> before the first start.</p>
+<p>Put this in <code>~/.moneu/moneu.conf</code> before the first start. Press
+the button and the file below fills in with a fresh random password.</p>
 
-<details>
-<summary>CONFIG FILE</summary>
-<pre>rpcuser=moneu
-rpcpassword=PUT-A-LONG-RANDOM-STRING-HERE
+<button class="gen-btn" id="genPasswordBtn">[ GENERATE SECURE PASSWORD ]</button>
+
+<div class="cmdlabel">CONFIG FILE</div>
+<pre id="configPre">rpcuser=moneu
+rpcpassword=<span id="rpcPassVal">PUT-A-LONG-RANDOM-STRING-HERE</span>
 rpcbind=127.0.0.1
 rpcport=8328
 rpcallowip=127.0.0.1
@@ -309,17 +426,53 @@ loglevel=info
 logtofile=true
 maxlogsize=10
 logips=false</pre>
-</details>
 
-<p>Make the password with this and then lock the file down.</p>
+<p>Leave the password line out and the node makes a random one for you in
+<code>~/.moneu/.rpc.cookie</code>. If you set one yourself, make it long and
+then lock the file down.</p>
 
-<details>
-<summary>PASSWORD AND PERMISSIONS</summary>
+<div class="cmdlabel">PASSWORD AND PERMISSIONS</div>
 <pre><b>$</b> openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32
 <b>$</b> chmod 600 ~/.moneu/moneu.conf</pre>
-</details>
 
 <p>You can also run the node through Tor SOCKS on <code>127.0.0.1:9050</code>.</p>
+
+<h2>GENESIS BLOCK</h2>
+
+<p>The first block of the chain, byte for byte. Any node can print it.</p>
+
+<pre class="dump"><span class="t1">MONEU Genesis Block</span><span class="t2">Raw Hex Version</span><span class="body">00000000   01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000010   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000020   00 00 00 00 43 39 65 88  04 9B 5E 2E 5B 9E 52 72  ....C9e...^.[.Rr
+00000030   0F 19 30 D3 EE EF 64 DE  59 E4 31 E1 82 0A 0A 39  ..0...d.Y.1....9
+00000040   BC 3A 21 64 00 00 00 00  00 00 00 00 00 00 00 00  .:!d............
+00000050   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000060   00 00 00 00 AB 3F 7F 6A  00 00 00 00 00 00 00 00  .....?.j........
+00000070   FF FF 00 1D 60 4B CF 65  01 00 00 00 78 01 00 00  ....`K.e....x...
+00000080   01 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  ................
+00000090   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+000000A0   00 00 00 00 00 00 00 00  FF FF FF FF 00 00 00 00  ................
+000000B0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+000000C0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+000000D0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+000000E0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+000000F0   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000100   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000110   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000120   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+00000130   02 00 00 00 00 AD F4 CA  01 00 00 00 25 76 A8 20  ............%v. 
+00000140   8F B3 11 B4 E4 A0 9E 77  5D 0E 99 10 E2 FF 55 32  .......w].....U2
+00000150   54 69 E8 B7 A0 B7 08 5B  D2 FD 1B 0C 80 A3 16 C5  Ti.....[........
+00000160   88 AC 00 00 00 00 00 00  00 00 85 6A 4C 82 35 34  ...........jL.54
+00000170   36 38 36 35 32 30 34 37  37 35 36 31 37 32 36 34  6865204775617264
+00000180   36 39 36 31 36 65 32 30  35 37 36 35 36 35 36 62  69616e205765656b
+00000190   36 63 37 39 32 30 33 31  33 34 32 66 34 31 37 35  6c792031342f4175
+000001A0   36 37 32 66 33 32 33 30  33 32 33 36 32 30 34 37  672f323032362047
+000001B0   36 66 36 65 36 35 32 30  37 32 36 66 36 37 37 35  6f6e6520726f6775
+000001C0   36 35 33 61 32 30 34 31  34 39 32 30 37 34 37 32  653a204149207472
+000001D0   36 39 36 33 36 62 37 33  32 30 36 39 37 34 37 33  69636b7320697473
+000001E0   32 30 37 34 36 35 37 33  37 34 36 35 37 32 37 33  2074657374657273
+000001F0   00 00 00 00 00 00 00 00                           ........</span></pre>
 
 <footer>
 Keep a copy of your wallet folder on a separate drive.<br>
@@ -327,5 +480,85 @@ Keep a copy of your wallet folder on a separate drive.<br>
 </footer>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // COPY button on every command block except the genesis dump
+  document.querySelectorAll('pre').forEach((pre) => {
+    if (pre.classList.contains('dump')) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-wrapper';
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerText = 'COPY';
+
+    btn.addEventListener('click', () => {
+      const cleanText = pre.innerText.replace(/^\$\s*/gm, '');
+      navigator.clipboard.writeText(cleanText).then(() => {
+        btn.innerText = 'COPIED!';
+        setTimeout(() => btn.innerText = 'COPY', 2000);
+      }).catch(() => {
+        btn.innerText = 'FAILED';
+      });
+    });
+
+    wrapper.appendChild(btn);
+  });
+
+  // Genesis dump: per line highlight plus a COPY button for the whole thing
+  const dump = document.querySelector('pre.dump');
+  const dumpBody = dump ? dump.querySelector('.body') : null;
+  if (dump && dumpBody) {
+    const plain = dumpBody.textContent.trim();
+
+    dumpBody.innerHTML = dumpBody.textContent
+      .split('\n')
+      .filter(line => line.trim())
+      .map(line => `<span class="hex-line">${line}</span>`)
+      .join('');
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-wrapper dump-wrapper';
+    dump.parentNode.insertBefore(wrapper, dump);
+    wrapper.appendChild(dump);
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerText = 'COPY';
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(plain).then(() => {
+        btn.innerText = 'COPIED!';
+        setTimeout(() => btn.innerText = 'COPY', 2000);
+      }).catch(() => {
+        btn.innerText = 'FAILED';
+      });
+    });
+    wrapper.appendChild(btn);
+  }
+
+  // Random RPC password, generated in the browser
+  const genBtn = document.getElementById('genPasswordBtn');
+  const passVal = document.getElementById('rpcPassVal');
+
+  if (genBtn && passVal) {
+    genBtn.addEventListener('click', () => {
+      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let randPass = '';
+      const array = new Uint32Array(32);
+      window.crypto.getRandomValues(array);
+      for (let i = 0; i < 32; i++) {
+        randPass += chars[array[i] % chars.length];
+      }
+      passVal.innerText = randPass;
+    });
+  }
+
+});
+</script>
 </body>
 </html>
