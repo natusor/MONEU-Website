@@ -38,7 +38,7 @@ body{
   font-family:"DejaVu Sans Mono","Liberation Mono",ui-monospace,Menlo,Consolas,monospace;
   font-size:16px; font-weight:700; line-height:1.8;
 }
-.wrap{max-width:96ch;margin:0 auto;padding:2.6rem 1.6rem 7rem}
+.wrap{max-width:none;margin:0;padding:2.6rem 10% 7rem}
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
      padding-bottom:1.3rem;border-bottom:1px solid var(--rule);
@@ -113,7 +113,7 @@ body{
 }
 
 h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font-weight:700;
-   letter-spacing:-0.01em;margin-bottom:1.3rem;max-width:30ch}
+   letter-spacing:-0.01em;margin-bottom:1.3rem;max-width:none}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   h1{
     background-image:linear-gradient(100deg,
@@ -127,8 +127,8 @@ h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font
     will-change:background-position;
   }
 }
-p{max-width:80ch;margin-bottom:1rem}
-.stand{margin-bottom:2rem;max-width:70ch}
+p{max-width:none;margin-bottom:1rem}
+.stand{margin-bottom:2rem;max-width:none}
 
 h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
    margin:3.6rem 0 1rem;padding-bottom:0.45rem;
@@ -137,7 +137,7 @@ h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
 .cmdlabel{font-size:0.78rem;letter-spacing:0.14em;color:var(--quiet);
           margin:1.4rem 0 0.4rem}
 
-.code-wrapper{position:relative;margin:0.6rem 0 1.4rem;max-width:82ch}
+.code-wrapper{position:relative;margin:0.6rem 0 1.4rem;max-width:none}
 .dump-wrapper{width:fit-content;max-width:100%;margin:1.4rem auto 1.6rem}
 .dump-wrapper pre.dump{margin:0}
 .code-wrapper pre{margin:0}
@@ -210,17 +210,17 @@ a.plain{color:var(--ink);text-decoration:underline;
 a.plain:hover,a.plain:focus{text-decoration-color:var(--accent);
                             color:var(--accent);outline:none}
 
-dl{max-width:76ch}
+dl{max-width:none}
 dl div{display:flex;gap:1.2rem;padding:0.45rem 0;
        border-bottom:1px solid var(--rule)}
 dt{color:var(--quiet);flex:0 0 16ch;font-size:0.88rem}
 dd{font-size:0.88rem;word-break:break-word}
 
-ul{max-width:80ch;list-style:none;margin-bottom:1.2rem}
+ul{max-width:none;list-style:none;margin-bottom:1.2rem}
 li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 
 .note{background:var(--panel);padding:0.9rem 1.1rem;
-      max-width:76ch;margin:1.6rem 0}
+      max-width:none;margin:1.6rem 0}
 
 .gen-btn{color:var(--paper);
          background-color:var(--green);
@@ -238,11 +238,11 @@ li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 .gen-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
 
 footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
-       color:var(--quiet);font-size:0.85rem;max-width:76ch}
+       color:var(--quiet);font-size:0.85rem;max-width:none}
 
 @media (max-width:560px){
   body{font-size:15px}
-  .wrap{padding:2rem 1.1rem 4.5rem}
+  .wrap{padding:2rem 5% 4.5rem}
   .wordmark{letter-spacing:0.22em}
   dl div{flex-direction:column;gap:0}
   dt{flex:none}
@@ -278,9 +278,8 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 
 <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
 
-<p class="stand">The mining software comes with the node. Get it running and
-you can start on your own computer right away, with the processor or with a
-graphics card.</p>
+<p class="stand">Run a full node on your computer and start mining coins.
+It has its own mining software.</p>
 
 <div class="actions">
 <a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/archive/refs/heads/main.zip">DOWNLOAD CODE</a>
