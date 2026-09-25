@@ -22,21 +22,23 @@
 <meta name="twitter:image" content="https://moneu.cc/logo.png">
 <style>
 :root{
-  --paper:#f4f4f2;
+  --paper:#f7f7f5;
   --ink:#000000;
-  --quiet:#5a5a58;
+  --quiet:#3d3d3b;
   --rule:#d6d6d2;
-  --panel:#e6e6e2;
+  --panel:#e4e4df;
   --mark:#000000;
   --accent:#a0651b;
   --green:#15633a;
+  --glow:#2fb36c;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   background:var(--paper); color:var(--ink);
   font-family:"DejaVu Sans Mono","Liberation Mono",ui-monospace,Menlo,Consolas,monospace;
-  font-size:16px; font-weight:700; line-height:1.8;
+  font-size:17px; font-weight:700; line-height:1.72;
+  text-rendering:optimizeLegibility;
 }
 .wrap{max-width:none;margin:0;padding:2.6rem 10% 7rem}
 
@@ -48,7 +50,7 @@ body{
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .wordmark{
     background-image:linear-gradient(100deg,
-      var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+      var(--green) 0%, var(--glow) 30%, var(--green) 62%, var(--glow) 100%);
     background-size:260% 100%;
     background-position:0% 50%;
     -webkit-background-clip:text;
@@ -65,7 +67,7 @@ body{
   50%  {background-position:100% 50%}
   100% {background-position:0% 50%}
 }
-.tag{font-size:0.95rem;font-weight:700;letter-spacing:0.16em;
+.tag{font-size:1rem;font-weight:700;letter-spacing:0.16em;
      color:var(--ink);margin-top:0.5rem}
 .top-logo-wrap{perspective:1000px;flex:0 0 auto}
 .top img{
@@ -117,7 +119,7 @@ h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   h1{
     background-image:linear-gradient(100deg,
-      var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+      var(--green) 0%, var(--glow) 30%, var(--green) 62%, var(--glow) 100%);
     background-size:260% 100%;
     background-position:0% 50%;
     -webkit-background-clip:text;
@@ -130,12 +132,12 @@ h1{color:var(--green);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font
 p{max-width:none;margin-bottom:1rem}
 .stand{margin-bottom:2rem;max-width:none}
 
-h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
+h2{font-size:1.2rem;font-weight:700;letter-spacing:0.16em;color:var(--accent);
    margin:3.6rem 0 1rem;padding-bottom:0.45rem;
    border-bottom:1px solid var(--rule)}
 
-.cmdlabel{font-size:0.78rem;letter-spacing:0.14em;color:var(--quiet);
-          margin:1.4rem 0 0.4rem}
+.cmdlabel{font-size:0.86rem;letter-spacing:0.14em;color:var(--ink);
+          margin:1.5rem 0 0.45rem}
 
 .code-wrapper{position:relative;margin:0.6rem 0 1.4rem;max-width:none}
 .dump-wrapper{width:fit-content;max-width:100%;margin:1.4rem auto 1.6rem}
@@ -146,7 +148,7 @@ h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
   color:var(--paper);
   background-color:var(--green);
   background-image:linear-gradient(100deg,
-    var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+    var(--green) 0%, var(--glow) 30%, var(--green) 62%, var(--glow) 100%);
   background-size:260% 100%;
   background-position:0% 50%;
   animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
@@ -161,7 +163,7 @@ h2{font-size:1.05rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);
 .copy-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
 
 pre{background:var(--panel);padding:1rem 1.35rem;margin:1.2rem 0;
-    overflow-x:auto;font:inherit;font-size:0.85rem;line-height:1.7}
+    overflow-x:auto;font:inherit;font-size:0.94rem;line-height:1.65}
 pre b{color:var(--quiet);font-weight:700}
 pre.dump{background:#000;color:#fff;border:none;text-align:center;
          font-size:clamp(0.41rem,1.17vw,1.09rem);
@@ -190,7 +192,7 @@ code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
 a.go{display:inline-block;color:var(--paper);
      background-color:var(--green);
      background-image:linear-gradient(100deg,
-       var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+       var(--green) 0%, var(--glow) 30%, var(--green) 62%, var(--glow) 100%);
      background-size:260% 100%;
      background-position:0% 50%;
      animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
@@ -213,8 +215,8 @@ a.plain:hover,a.plain:focus{text-decoration-color:var(--accent);
 dl{max-width:none}
 dl div{display:flex;gap:1.2rem;padding:0.45rem 0;
        border-bottom:1px solid var(--rule)}
-dt{color:var(--quiet);flex:0 0 16ch;font-size:0.88rem}
-dd{font-size:0.88rem;word-break:break-word}
+dt{color:var(--quiet);flex:0 0 18ch;font-size:0.95rem}
+dd{font-size:0.95rem;word-break:break-word}
 
 ul{max-width:none;list-style:none;margin-bottom:1.2rem}
 li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
@@ -225,7 +227,7 @@ li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 .gen-btn{color:var(--paper);
          background-color:var(--green);
          background-image:linear-gradient(100deg,
-           var(--green) 0%, var(--accent) 35%, var(--green) 70%, var(--accent) 100%);
+           var(--green) 0%, var(--glow) 30%, var(--green) 62%, var(--glow) 100%);
          background-size:260% 100%;
          background-position:0% 50%;
          animation:sheen 11s cubic-bezier(0.45,0,0.55,1) infinite;
@@ -238,10 +240,10 @@ li{padding:0.6rem 0;border-bottom:1px solid var(--rule)}
 .gen-btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
 
 footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
-       color:var(--quiet);font-size:0.85rem;max-width:none}
+       color:var(--quiet);font-size:0.92rem;max-width:none}
 
 @media (max-width:560px){
-  body{font-size:15px}
+  body{font-size:16px}
   .wrap{padding:2rem 5% 4.5rem}
   .wordmark{letter-spacing:0.22em}
   dl div{flex-direction:column;gap:0}
@@ -310,17 +312,7 @@ An old computer is fine.</p>
 <b>$</b> ./build/src/moneu-test-noise
 <b>$</b> ./build/src/moneud -daemon</pre>
 
-<p>The tests end with <code>ALL TESTS PASSED</code>. The node synchronises
-with the network in about five to ten minutes.</p>
-
-<div class="note">Delete any old <code>build</code> folder before you start.
-CMake works from a clean slate.</div>
-
 <h2>WALLET</h2>
-
-<p>Write down the twenty four words it prints. Use the same password for both
-commands. Building the noise file takes a few minutes and works the computer
-hard on purpose.</p>
 
 <div class="cmdlabel">WALLET COMMANDS</div>
 <pre><b>$</b> ./build/src/moneu-cli createwallet "your-password"
@@ -329,10 +321,6 @@ hard on purpose.</p>
 <b>$</b> ./build/src/moneu-cli getnewaddress</pre>
 
 <h2>MINING</h2>
-
-<p>Give the number of threads to mine with the processor, or add
-<code>gpu</code> at the end to mine with a graphics card. GPU mining needs an
-OpenCL driver. Most gaming machines already have one.</p>
 
 <div class="cmdlabel">MINING COMMANDS</div>
 <pre><b>$</b> ./build/src/moneu-cli startmining YOUR-ADDRESS 2
@@ -346,19 +334,22 @@ OpenCL driver. Most gaming machines already have one.</p>
 
 <h2>CARE</h2>
 
-<ul>
-<li>Copy the whole wallet folder with the noise file inside to another drive.
-If you lose the noise file then the seed phrase will not recover access to
-your coins.</li>
-<li>Build the noise file on a real computer and not on a virtual one. The node
-checks the quality first and will tell you if it is not good enough.</li>
-<li>Keep one wallet per computer and never two.</li>
-<li>Watch the leaf counter. When it runs low make a new wallet on another
-computer and send the coins there.</li>
-<li>Every coin you spend uses up four leaves. One coin takes four, twenty
-coins take eighty. Your computer builds a noise file holding 1 048 576
-leaves, which is enough for 262 144 payments.</li>
-</ul>
+<p>Build from a clean slate and delete any old build folder first. When the
+tests say ALL TESTS PASSED the node is ready and takes five to ten minutes to
+catch up with the network. Write down the twenty four words the wallet prints
+and use the same password for the wallet and for the noise file. Building that
+file takes a few minutes and works the computer hard on purpose, so build it on
+a real machine and not on a virtual one.</p>
+
+<p>Copy the whole wallet folder to another drive, noise file included. The seed
+phrase alone will not bring your coins back without it. Keep one wallet per
+computer and watch the leaf counter: every payment uses four leaves out of the
+1 048 576 your computer made, so the file is good for 262 144 payments. When it
+runs low, make a wallet on another computer and send the coins there.</p>
+
+<p>Leave the rpcpassword line out and the node makes a random one for you. If
+you set your own, make it long and lock the file down. The node can run through
+Tor if you want it to.</p>
 
 <h2>SHIELD</h2>
 
@@ -393,12 +384,9 @@ their wallet.</p>
 
 <h2>CONFIG</h2>
 
-<p>Put this in <code>~/.moneu/moneu.conf</code> before the first start. Press
-the button and the file below fills in with a fresh random password.</p>
-
 <button class="gen-btn" id="genPasswordBtn">[ GENERATE SECURE PASSWORD ]</button>
 
-<div class="cmdlabel">CONFIG FILE</div>
+<div class="cmdlabel">CONFIG FILE &nbsp;~/.moneu/moneu.conf</div>
 <pre id="configPre">rpcuser=moneu
 rpcpassword=<span id="rpcPassVal">PUT-A-LONG-RANDOM-STRING-HERE</span>
 rpcbind=127.0.0.1
@@ -417,15 +405,9 @@ logtofile=true
 maxlogsize=10
 logips=false</pre>
 
-<p>Leave the password line out and the node makes a random one for you in
-<code>~/.moneu/.rpc.cookie</code>. If you set one yourself, make it long and
-then lock the file down.</p>
-
 <div class="cmdlabel">PASSWORD AND PERMISSIONS</div>
 <pre><b>$</b> openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32
 <b>$</b> chmod 600 ~/.moneu/moneu.conf</pre>
-
-<p>You can also run the node through Tor SOCKS on <code>127.0.0.1:9050</code>.</p>
 
 <h2>GENESIS BLOCK</h2>
 
