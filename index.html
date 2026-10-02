@@ -210,6 +210,7 @@ code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
       pointer-events:none;will-change:transform;z-index:1;display:none}
 .coin img{width:100%;height:100%;display:block;
           animation:coinspin 6s linear infinite}
+.coin + .coin img{animation-direction:reverse}
 @keyframes coinspin{
   0%   {transform:rotate(0deg)}
   100% {transform:rotate(360deg)}
@@ -380,6 +381,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);
 <a class="go go-pkg go-win" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/main/moneu-0.2.2-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a>
 </div>
 <a class="go go-paper" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
+<span class="coin" aria-hidden="true"><img src="logo.png" alt="" width="28" height="28"></span>
 <span class="coin" aria-hidden="true"><img src="logo.png" alt="" width="28" height="28"></span>
 </div>
 
@@ -687,13 +689,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.content section').forEach((sec) => observer.observe(sec));
   }
 
-  // A MONEU coin bouncing between the buttons
+  // Two MONEU coins bouncing between the buttons and off each other
   const field = document.querySelector('.actions');
-  const coin = field ? field.querySelector('.coin') : null;
+  const coinEls = field ? Array.from(field.querySelectorAll('.coin')) : [];
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (field && coin && !calm) {
+  if (field && coinEls.length && !calm) {
     const size = 28;
-    let x = 8, y = 4, vx = 150, vy = 110;
     let walls = [];
     const measure = () => {
       const f = field.getBoundingClientRect();
@@ -707,30 +708,69 @@ document.addEventListener('DOMContentLoaded', () => {
     let box = measure();
     window.addEventListener('resize', () => { box = measure(); });
     setInterval(() => { box = measure(); }, 1500);
-    coin.style.display = 'block';
+    const speed = 100;
+    const steady = (c) => {
+      const min = speed * 0.35;
+      let vx = c.vx, vy = c.vy;
+      const sx = vx < 0 ? -1 : 1, sy = vy < 0 ? -1 : 1;
+      const len = Math.hypot(vx, vy) || 1;
+      vx = vx / len * speed; vy = vy / len * speed;
+      if (Math.abs(vx) < min) { vx = sx * min; vy = sy * Math.sqrt(speed * speed - min * min); }
+      if (Math.abs(vy) < min) { vy = sy * min; vx = sx * Math.sqrt(speed * speed - min * min); }
+      c.vx = vx; c.vy = vy;
+    };
+    const coins = coinEls.map((el, i) => ({
+      el,
+      x: i === 0 ? 8 : box.width - size - 8,
+      y: 4,
+      vx: i === 0 ? 80 : -80,
+      vy: 60
+    }));
+    coins.forEach((c) => { c.el.style.display = 'block'; });
+    const move = (c, dt) => {
+      c.x += c.vx * dt; c.y += c.vy * dt;
+      if (c.x < 0) { c.x = 0; c.vx = Math.abs(c.vx); }
+      if (c.y < 0) { c.y = 0; c.vy = Math.abs(c.vy); }
+      if (c.x + size > box.width)  { c.x = box.width - size;  c.vx = -Math.abs(c.vx); }
+      if (c.y + size > box.height) { c.y = box.height - size; c.vy = -Math.abs(c.vy); }
+      for (const w of walls) {
+        if (c.x + size <= w.l || c.x >= w.r || c.y + size <= w.t || c.y >= w.b) continue;
+        const pushL = c.x + size - w.l, pushR = w.r - c.x;
+        const pushT = c.y + size - w.t, pushB = w.b - c.y;
+        if (Math.min(pushL, pushR) < Math.min(pushT, pushB)) {
+          if (pushL < pushR) { c.x = w.l - size; c.vx = -Math.abs(c.vx); }
+          else { c.x = w.r; c.vx = Math.abs(c.vx); }
+        } else {
+          if (pushT < pushB) { c.y = w.t - size; c.vy = -Math.abs(c.vy); }
+          else { c.y = w.b; c.vy = Math.abs(c.vy); }
+        }
+      }
+    };
+    const collide = (a, b) => {
+      const dx = (b.x - a.x), dy = (b.y - a.y);
+      const dist = Math.hypot(dx, dy);
+      if (dist === 0 || dist >= size) return;
+      const nx = dx / dist, ny = dy / dist;
+      const rel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+      if (rel > 0) {
+        a.vx -= rel * nx; a.vy -= rel * ny;
+        b.vx += rel * nx; b.vy += rel * ny;
+        steady(a); steady(b);
+      }
+      const push = (size - dist) / 2;
+      a.x -= nx * push; a.y -= ny * push;
+      b.x += nx * push; b.y += ny * push;
+    };
     let last = performance.now();
     const step = (now) => {
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
-      x += vx * dt; y += vy * dt;
-      if (x < 0) { x = 0; vx = Math.abs(vx); }
-      if (y < 0) { y = 0; vy = Math.abs(vy); }
-      if (x + size > box.width)  { x = box.width - size;  vx = -Math.abs(vx); }
-      if (y + size > box.height) { y = box.height - size; vy = -Math.abs(vy); }
-      for (const w of walls) {
-        if (x + size <= w.l || x >= w.r || y + size <= w.t || y >= w.b) continue;
-        const pushL = x + size - w.l, pushR = w.r - x;
-        const pushT = y + size - w.t, pushB = w.b - y;
-        const px = Math.min(pushL, pushR), py = Math.min(pushT, pushB);
-        if (px < py) {
-          if (pushL < pushR) { x = w.l - size; vx = -Math.abs(vx); }
-          else { x = w.r; vx = Math.abs(vx); }
-        } else {
-          if (pushT < pushB) { y = w.t - size; vy = -Math.abs(vy); }
-          else { y = w.b; vy = Math.abs(vy); }
-        }
-      }
-      coin.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      for (let i = 0; i < coins.length; i++)
+        for (let j = i + 1; j < coins.length; j++) collide(coins[i], coins[j]);
+      coins.forEach((c) => move(c, dt));
+      coins.forEach((c) => {
+        c.el.style.transform = `translate3d(${c.x}px, ${c.y}px, 0)`;
+      });
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
