@@ -35,6 +35,8 @@
   --blueglow:#3f7fb0;
   --amber:#8f5a17;
   --amberglow:#c98c2e;
+  --night:#000000;
+  --nightglow:#4a4a4a;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -74,6 +76,9 @@ body{
 .tag{font-size:1rem;font-weight:700;letter-spacing:0.16em;
      color:var(--ink);margin-top:0.5rem}
 .top-logo-wrap{perspective:1000px;flex:0 0 auto}
+.top h1{flex:1 1 auto;margin:5.4rem 0 0;padding-right:6rem;text-align:center;
+        font-size:clamp(1.2rem,2.6vw,2.1rem);
+        -webkit-text-stroke:0.9px var(--green);paint-order:stroke fill}
 .top img{
   width:184px;height:auto;display:block;
   transition:transform 1.1s cubic-bezier(0.22,0.61,0.36,1);
@@ -109,6 +114,11 @@ body{
   0%   { transform: scale(0.94); box-shadow: 0 0 0 0 rgba(21, 99, 58, 0.55); }
   65%  { transform: scale(1.02); box-shadow: 0 0 0 7px rgba(21, 99, 58, 0); }
   100% { transform: scale(0.94); box-shadow: 0 0 0 0 rgba(21, 99, 58, 0); }
+}
+
+@media (max-width:760px){
+  .top{flex-wrap:wrap}
+  .top h1{order:3;flex-basis:100%;margin-top:1.2rem;padding-right:0}
 }
 
 @media (max-width:480px){
@@ -191,8 +201,8 @@ pre.dump .hex-line:hover{background:rgba(255,255,255,0.2);color:#00ff66;
 @media (max-width:1060px){pre.dump{padding:0.8rem 0.6rem 0.9rem}}
 code{background:var(--panel);padding:0.1em 0.35em;font-size:0.92em}
 
-.actions{display:flex;flex-wrap:wrap;justify-content:center;
-         gap:6rem;margin:2.6rem 0 1.4rem}
+.actions{display:flex;flex-direction:column;align-items:center;
+         gap:1.1rem;margin:1.2rem 0 0}
 a.go{display:inline-block;color:var(--paper);
      background-color:var(--green);
      background-image:linear-gradient(100deg,
@@ -203,25 +213,33 @@ a.go{display:inline-block;color:var(--paper);
      border:2px solid transparent;border-radius:8px;
      text-decoration:none;font:inherit;font-weight:700;font-size:0.85rem;
      letter-spacing:0.1em;padding:0.75rem 1.55rem;
+     width:24rem;max-width:100%;text-align:center;
      transition:color 0.25s cubic-bezier(0.22,0.61,0.36,1),
                 border-color 0.25s cubic-bezier(0.22,0.61,0.36,1),
                 background 0.25s cubic-bezier(0.22,0.61,0.36,1),
                 transform 0.25s cubic-bezier(0.22,0.61,0.36,1);
      will-change:transform}
-a.go:nth-child(1){
+a.go.go-win{
   background-color:var(--blue);
   background-image:linear-gradient(100deg,
     var(--blue) 0%, var(--blueglow) 30%, var(--blue) 62%, var(--blueglow) 100%);
 }
-a.go:nth-child(3){
+a.go.go-src{
   background-color:var(--amber);
   background-image:linear-gradient(100deg,
     var(--amber) 0%, var(--amberglow) 30%, var(--amber) 62%, var(--amberglow) 100%);
 }
-a.go:nth-child(1):hover,a.go:nth-child(1):focus{
+a.go.go-win:hover,a.go.go-win:focus{
   box-shadow:0 5px 16px rgba(29,60,92,0.3)}
-a.go:nth-child(3):hover,a.go:nth-child(3):focus{
+a.go.go-src:hover,a.go.go-src:focus{
   box-shadow:0 5px 16px rgba(143,90,23,0.28)}
+a.go.go-paper{
+  background-color:var(--night);
+  background-image:linear-gradient(100deg,
+    var(--night) 0%, var(--nightglow) 30%, var(--night) 62%, var(--nightglow) 100%);
+}
+a.go.go-paper:hover,a.go.go-paper:focus{
+  box-shadow:0 5px 16px rgba(0,0,0,0.3)}
 a.go:hover,a.go:focus{outline:none;transform:translateY(-2px);
                       box-shadow:0 5px 16px rgba(21,99,58,0.26);
                       filter:brightness(1.08)}
@@ -266,8 +284,50 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   .wordmark{letter-spacing:0.22em}
   dl div{flex-direction:column;gap:0}
   dt{flex:none}
-  .actions{gap:1.6rem}
+  .actions{gap:0.9rem}
   a.go{font-size:0.78rem;padding:0.7rem 1.1rem;letter-spacing:0.06em}
+}
+
+html{scroll-behavior:smooth}
+.wrap{max-width:1240px;margin:0 auto;padding:2.6rem 2.5rem 7rem}
+.stand{text-align:center;max-width:60ch;margin:2.2rem auto 0}
+
+.layout{display:grid;grid-template-columns:13rem minmax(0,1fr);
+        gap:4rem;margin-top:4.2rem;align-items:start}
+.toc{position:sticky;top:1.6rem;display:flex;flex-direction:column;
+     gap:0.15rem;padding-left:0.9rem;border-left:2px solid var(--rule)}
+.toc a{color:var(--quiet);text-decoration:none;font-size:0.82rem;
+       letter-spacing:0.14em;padding:0.32rem 0;
+       transition:color 0.2s cubic-bezier(0.22,0.61,0.36,1)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--green)}
+.content{min-width:0}
+.content section{scroll-margin-top:1.6rem}
+.content section:first-child h2{margin-top:0}
+.content p{max-width:72ch}
+
+.code-wrapper pre,pre{border-radius:10px}
+.code-wrapper pre:not(.dump){border-left:3px solid var(--green)}
+.cmdlabel{color:var(--quiet)}
+
+dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2.6rem;
+   border-top:1px solid var(--rule)}
+dl div{padding:0.65rem 0}
+dt{flex:0 0 14ch}
+
+footer{text-align:center}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);
+                                     outline-offset:3px}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:0;margin-top:2.6rem}
+  .toc{display:none}
+  dl{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .wrap{padding:2rem 5% 4.5rem}
+  dt{flex:none}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -277,6 +337,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
     transition-duration:0.01ms !important;
   }
   .wordmark,h1,a.go,.copy-btn,.gen-btn{background-position:0% 50%}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
@@ -291,24 +352,42 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
       <span class="pulse-dot"></span> NETWORK OPERATIONAL
     </div>
   </div>
+  <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
   <div class="top-logo-wrap">
     <img src="logo.png" alt="MONEU logo" width="184" height="184">
   </div>
 </div>
 
-<h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
+<div class="actions">
+<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_linux/raw/main/moneu-0.2.0-linux-x86_64.tar.gz">DOWNLOAD LINUX PACKAGE x86_64</a>
+<a class="go go-win" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/main/moneu-0.2.2-windows-x86_64.zip">DOWNLOAD WINDOWS PACKAGE x86_64</a>
+<a class="go go-src" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU">SOURCE CODE</a>
+<a class="go go-paper" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
+</div>
 
 <p class="stand">Run a full node on your computer and start mining coins.
 It has its own mining software.</p>
 
-<div class="actions">
-<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU">SOURCE CODE</a>
-<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_linux/raw/main/moneu-0.2.0-linux-x86_64.tar.gz">DOWNLOAD LINUX PACKAGE x86_64</a>
-<a class="go" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
-</div>
 
 
+<div class="layout">
 
+<nav class="toc" aria-label="Sections">
+  <a href="#requirements">REQUIREMENTS</a>
+  <a href="#install">INSTALL</a>
+  <a href="#wallet">WALLET</a>
+  <a href="#mining">MINING</a>
+  <a href="#nodes">NODES</a>
+  <a href="#care">CARE</a>
+  <a href="#shield">SHIELD</a>
+  <a href="#specs">SPECS</a>
+  <a href="#config">CONFIG</a>
+  <a href="#genesis-block">GENESIS BLOCK</a>
+</nav>
+
+<main class="content">
+
+<section id="requirements">
 <h2>REQUIREMENTS</h2>
 
 <p>Ubuntu 22.04 or newer. Debian works too. Boost 1.74 or newer is required.
@@ -318,8 +397,10 @@ An old computer is fine.</p>
 <pre><b>$</b> sudo apt-get install -y build-essential cmake \
     libboost-filesystem-dev libboost-system-dev \
     libboost-thread-dev libboost-program-options-dev \
-    libssl-dev libleveldb-dev nlohmann-json3-dev</pre>
+    libssl-dev nlohmann-json3-dev</pre>
+</section>
 
+<section id="install">
 <h2>INSTALL</h2>
 
 <div class="cmdlabel">BUILD AND START</div>
@@ -329,7 +410,9 @@ An old computer is fine.</p>
 <b>$</b> cmake --build build -j$(nproc)
 <b>$</b> ./build/src/moneu-test-noise
 <b>$</b> ./build/src/moneud -daemon</pre>
+</section>
 
+<section id="wallet">
 <h2>WALLET</h2>
 
 <div class="cmdlabel">WALLET COMMANDS</div>
@@ -339,7 +422,9 @@ An old computer is fine.</p>
 <b>$</b> ./build/src/moneu-cli getnewaddress
 <b>$</b> ./build/src/moneu-cli getwalletinfo
 <b>$</b> ./build/src/moneu-cli getbalance YOUR-ADDRESS</pre>
+</section>
 
+<section id="mining">
 <h2>MINING</h2>
 
 <div class="cmdlabel">MINING COMMANDS</div>
@@ -349,11 +434,15 @@ An old computer is fine.</p>
 <b>$</b> ./build/src/moneu-cli getwalletinfo
 <b>$</b> ./build/src/moneu-cli getbalance YOUR-ADDRESS
 <b>$</b> ./build/src/moneu-cli stopmining</pre>
+</section>
 
+<section id="nodes">
 <h2>NODES</h2>
 
 <p>Start your MONEU node and mine solo.</p>
+</section>
 
+<section id="care">
 <h2>CARE</h2>
 
 <p>Build from a clean slate and delete any old build folder first. When the
@@ -372,7 +461,9 @@ runs low, make a wallet on another computer and send the coins there.</p>
 <p>Leave the rpcpassword line out and the node makes a random one for you. If
 you set your own, make it long and lock the file down. The node can run through
 Tor if you want it to.</p>
+</section>
 
+<section id="shield">
 <h2>SHIELD</h2>
 
 <p>Only you can send your coins. If somebody works out your private key even
@@ -384,7 +475,9 @@ drive and plug that in only when you pay somebody.</p>
 
 <p>Anyone can build an external device that collects entropy and feed it into
 their wallet.</p>
+</section>
 
+<section id="specs">
 <h2>SPECS</h2>
 
 <dl>
@@ -403,7 +496,9 @@ their wallet.</p>
 <p>Mining is the only way coins come into existence.</p>
 
 <p>The chain has been running non stop since the first block.</p>
+</section>
 
+<section id="config">
 <h2>CONFIG</h2>
 
 <button class="gen-btn" id="genPasswordBtn">[ GENERATE SECURE PASSWORD ]</button>
@@ -430,7 +525,9 @@ logips=false</pre>
 <div class="cmdlabel">PASSWORD AND PERMISSIONS</div>
 <pre><b>$</b> openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32
 <b>$</b> chmod 600 ~/.moneu/moneu.conf</pre>
+</section>
 
+<section id="genesis-block">
 <h2>GENESIS BLOCK</h2>
 
 <p>The first block of the chain, byte for byte. Any node can print it.</p>
@@ -467,6 +564,10 @@ logips=false</pre>
 000001D0   36 39 36 33 36 62 37 33  32 30 36 39 37 34 37 33  69636b7320697473
 000001E0   32 30 37 34 36 35 37 33  37 34 36 35 37 32 37 33  2074657374657273
 000001F0   00 00 00 00 00 00 00 00                           ........</span></pre>
+</section>
+
+</main>
+</div>
 
 <footer>
 Keep a copy of your wallet folder on a separate drive.<br>
@@ -550,6 +651,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       passVal.innerText = randPass;
     });
+  }
+
+  // Highlight the section being read in the side index
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (tocLinks.length && 'IntersectionObserver' in window) {
+    const byId = {};
+    tocLinks.forEach((a) => { byId[a.getAttribute('href').slice(1)] = a; });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        tocLinks.forEach((a) => a.classList.remove('active'));
+        const link = byId[entry.target.id];
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('.content section').forEach((sec) => observer.observe(sec));
   }
 
 });
