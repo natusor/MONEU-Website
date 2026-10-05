@@ -90,16 +90,29 @@ body{
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.7rem;
   font-size: 1.02rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   color: var(--green);
   margin-top: 0.75rem;
-  background: none;
-  padding: 0;
-  border: none;
+  background: var(--panel);
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.22,0.61,0.36,1),
+              box-shadow 0.25s cubic-bezier(0.22,0.61,0.36,1),
+              background 0.25s cubic-bezier(0.22,0.61,0.36,1);
 }
+.status-badge:hover,.status-badge:focus {
+  outline: none;
+  transform: translateY(-2px);
+  background: var(--paper);
+  box-shadow: 0 5px 16px rgba(21, 99, 58, 0.26);
+}
+.status-text{display:flex;flex-direction:column;line-height:1.25}
+.status-text small{font-size:0.68em;letter-spacing:0.22em;color:var(--quiet);margin-top:0.2rem}
 .pulse-dot {
   width: 10px;
   height: 10px;
@@ -367,9 +380,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);
   <div>
     <div class="wordmark">MONEU</div>
     <div class="tag">PROOF OF WORK BLOCKCHAIN</div>
-    <div class="status-badge">
-      <span class="pulse-dot"></span> NETWORK OPERATIONAL
-    </div>
+    <a class="status-badge" rel="noopener noreferrer external" href="https://explorer.moneu.cc">
+      <span class="pulse-dot"></span>
+      <span class="status-text">NETWORK OPERATIONAL<small>BLOCK EXPLORER</small></span>
+    </a>
   </div>
   <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
   <div class="top-logo-wrap">
