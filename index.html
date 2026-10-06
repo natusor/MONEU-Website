@@ -326,6 +326,7 @@ html{scroll-behavior:smooth}
 .banner{display:block;width:100%;height:auto;margin:1.2rem 0 0.4rem;
         border-radius:10px}
 .banner + p{margin-top:1.4rem}
+@media (max-width:560px){.banner.zoom{aspect-ratio:2/1;object-fit:cover}}
 
 .layout{display:grid;grid-template-columns:13rem minmax(0,1fr);
         gap:4rem;margin-top:4.2rem;align-items:start}
@@ -435,8 +436,9 @@ It has its own mining software.</p>
 <section id="requirements">
 <h2>REQUIREMENTS</h2>
 
-<p>Ubuntu 22.04 or newer. Debian works too. Boost 1.74 or newer is required.
-An old computer is fine.</p>
+<img class="banner zoom" src="requirements.webp"
+     alt="System requirements. OS: Ubuntu 22.04 or newer, or Debian. Library: Boost 1.74 or newer. Hardware: an old computer is fine."
+     width="1408" height="469" decoding="async">
 
 <div class="cmdlabel">DEPENDENCIES</div>
 <pre><b>$</b> sudo apt-get install -y build-essential cmake \
