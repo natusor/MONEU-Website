@@ -130,8 +130,11 @@ body{
 }
 
 @media (max-width:760px){
-  .top{flex-wrap:wrap}
-  .top h1{order:3;flex-basis:100%;margin-top:1.2rem;padding-right:0}
+  .top{flex-direction:column;align-items:center;justify-content:center;
+       text-align:center;gap:0.9rem}
+  .top-logo-wrap{order:-1}
+  .top .wordmark{padding-left:0.3em}
+  .top h1{flex:0 0 auto;width:100%;margin:0.8rem 0 0;padding-right:0}
 }
 
 @media (max-width:480px){
@@ -308,6 +311,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
   body{font-size:16px}
   .wrap{padding:2rem 5% 4.5rem}
   .wordmark{letter-spacing:0.22em}
+  .top .wordmark{padding-left:0.22em}
   dl div{flex-direction:column;gap:0}
   dt{flex:none}
   .actions{gap:0.9rem}
@@ -317,6 +321,10 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
 html{scroll-behavior:smooth}
 .wrap{max-width:1240px;margin:0 auto;padding:2.6rem 2.5rem 7rem}
 .stand{text-align:center;max-width:60ch;margin:1rem auto 0}
+.community{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;
+           gap:0.4rem 1.6rem;margin:1.4rem auto 0;font-size:0.85rem;
+           letter-spacing:0.14em}
+.community span{color:var(--quiet)}
 
 .layout{display:grid;grid-template-columns:13rem minmax(0,1fr);
         gap:4rem;margin-top:4.2rem;align-items:start}
@@ -404,6 +412,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);
 
 <p class="stand">Run a full node on your computer and start mining coins.
 It has its own mining software.</p>
+
+<p class="community"><span>COMMUNITY</span>
+<a class="plain" rel="noopener noreferrer external" href="https://bitcointalk.org/index.php?topic=5592489.0">BITCOINTALK</a></p>
 
 
 
@@ -588,7 +599,7 @@ logips=false</pre>
 00000100   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
 00000110   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
 00000120   00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
-00000130   02 00 00 00 00 AD F4 CA  01 00 00 00 25 76 A8 20  ............%v. 
+00000130   02 00 00 00 00 AD F4 CA  01 00 00 00 25 76 A8 20  ............%v.
 00000140   8F B3 11 B4 E4 A0 9E 77  5D 0E 99 10 E2 FF 55 32  .......w].....U2
 00000150   54 69 E8 B7 A0 B7 08 5B  D2 FD 1B 0C 80 A3 16 C5  Ti.....[........
 00000160   88 AC 00 00 00 00 00 00  00 00 85 6A 4C 82 35 34  ...........jL.54
