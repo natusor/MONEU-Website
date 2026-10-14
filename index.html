@@ -37,6 +37,8 @@
   --amberglow:#c98c2e;
   --night:#000000;
   --nightglow:#4a4a4a;
+  --pink:#a3165a;
+  --pinkglow:#d94a90;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -96,23 +98,8 @@ body{
   letter-spacing: 0.18em;
   color: var(--green);
   margin-top: 0.75rem;
-  background: var(--panel);
-  padding: 0.55rem 1rem;
-  border: 2px solid var(--green);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform 0.25s cubic-bezier(0.22,0.61,0.36,1),
-              box-shadow 0.25s cubic-bezier(0.22,0.61,0.36,1),
-              background 0.25s cubic-bezier(0.22,0.61,0.36,1);
-}
-.status-badge:hover,.status-badge:focus {
-  outline: none;
-  transform: translateY(-2px);
-  background: var(--paper);
-  box-shadow: 0 5px 16px rgba(21, 99, 58, 0.26);
 }
 .status-text{display:flex;flex-direction:column;line-height:1.25}
-.status-text small{font-size:0.68em;letter-spacing:0.22em;color:var(--quiet);margin-top:0.2rem}
 .pulse-dot {
   width: 10px;
   height: 10px;
@@ -135,6 +122,7 @@ body{
   .top-logo-wrap{order:-1}
   .top .wordmark{padding-left:0.3em}
   .top h1{flex:0 0 auto;width:100%;margin:0.8rem 0 0;padding-right:0}
+  .top a.go.go-explorer{margin-left:auto;margin-right:auto}
 }
 
 @media (max-width:480px){
@@ -270,6 +258,14 @@ a.go.go-paper{
 }
 a.go.go-paper:hover,a.go.go-paper:focus{
   box-shadow:0 5px 16px rgba(0,0,0,0.3)}
+a.go.go-explorer{
+  display:block;width:fit-content;margin-top:0.85rem;
+  background-color:var(--pink);
+  background-image:linear-gradient(100deg,
+    var(--pink) 0%, var(--pinkglow) 30%, var(--pink) 62%, var(--pinkglow) 100%);
+}
+a.go.go-explorer:hover,a.go.go-explorer:focus{
+  box-shadow:0 5px 16px rgba(163,22,90,0.3)}
 a.go:hover,a.go:focus{outline:none;transform:translateY(-2px);
                       box-shadow:0 5px 16px rgba(21,99,58,0.26);
                       filter:brightness(1.08)}
@@ -390,10 +386,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);
   <div>
     <div class="wordmark">MONEU</div>
     <div class="tag">PROOF OF WORK BLOCKCHAIN</div>
-    <a class="status-badge" rel="noopener noreferrer external" href="https://explorer.moneu.cc">
+    <div class="status-badge">
       <span class="pulse-dot"></span>
-      <span class="status-text">NETWORK OPERATIONAL<small>BLOCK EXPLORER</small></span>
-    </a>
+      <span class="status-text">NETWORK OPERATIONAL</span>
+    </div>
+    <a class="go go-explorer" rel="noopener noreferrer external" href="https://explorer.moneu.cc">BLOCK EXPLORER</a>
   </div>
   <h1>Nobody prints MONEU.<br>You mine it yourself.</h1>
   <div class="top-logo-wrap">
@@ -405,8 +402,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);
 <a class="go go-src" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU">SOURCE CODE</a>
 <div class="pkgs">
 <a class="plain forum" rel="noopener noreferrer external" href="https://bitcointalk.org/index.php?topic=5592489.0;all">BITCOINTALK FORUM</a>
-<a class="go go-pkg" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_linux/raw/main/moneu-0.2.3-linux-x86_64.tar.gz">MONEU PACKAGE FOR LINUX x86_64</a>
-<a class="go go-pkg go-win" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/main/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a>
+<a class="go go-pkg" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_linux/raw/52c25b0c2479d58d0a168e9fa308681b839d1310/moneu-0.2.3-linux-x86_64.tar.gz">MONEU PACKAGE FOR LINUX x86_64</a>
+<a class="go go-pkg go-win" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a>
 </div>
 <a class="go go-paper" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md">WHITE PAPER</a>
 </div>
@@ -502,8 +499,8 @@ It has its own mining software.</p>
      width="1408" height="469" loading="lazy" decoding="async">
 
 <p>Build from a clean slate and delete any old build folder first. When the
-tests say ALL TESTS PASSED the node is ready and takes five to ten minutes to
-catch up with the network. Write down the twenty four words the wallet prints
+tests say ALL TESTS PASSED the node is ready.
+Write down the twenty four words the wallet prints
 and use the same password for the wallet and for the noise file. Building that
 file takes a few minutes and works the computer hard on purpose, so build it on
 a real machine and not on a virtual one.</p>
