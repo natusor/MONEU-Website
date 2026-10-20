@@ -64,7 +64,7 @@ body{
      text-shadow:0 0 6px var(--paper),0 0 12px var(--paper),0 0 18px var(--paper)}
 .hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem;height:100%;justify-content:space-between}
 .wordmark{font-size:2.5rem;font-weight:900;letter-spacing:0.3em;color:var(--ink)}
-.tag{font-size:1rem;font-weight:700;letter-spacing:0.16em;color:var(--orange);margin-top:0.5rem}
+.tag{font-size:1rem;font-weight:700;letter-spacing:0.16em;color:var(--quiet);margin-top:0.5rem}
 .top-logo-wrap{perspective:1000px;flex:0 0 auto}
 .top h1{margin:0;text-align:right;font-size:clamp(1.1rem,1.9vw,1.75rem);white-space:nowrap;color:var(--green)}
 .top-logo-wrap img{width:150px;height:auto;display:block;
@@ -88,7 +88,7 @@ h1{color:var(--ink);font-size:clamp(1.7rem,5.2vw,2.5rem);line-height:1.25;font-w
    letter-spacing:-0.01em;margin-bottom:1.3rem}
 p{margin-bottom:1rem}
 
-h2{font-size:1.2rem;font-weight:700;letter-spacing:0.16em;color:var(--orange);
+h2{font-size:1.2rem;font-weight:700;letter-spacing:0.16em;color:var(--ink);
    margin:3.6rem 0 1rem;padding-bottom:0.45rem;border-bottom:2px solid var(--rule);
    display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
 h2 .os{font-size:0.72rem;letter-spacing:0.14em;color:var(--ink);
@@ -98,7 +98,7 @@ h2 .os{font-size:0.72rem;letter-spacing:0.14em;color:var(--ink);
 
 /* ---------- buttons: orange text, green ring + green text on hover ---------- */
 a.go,.copy-btn,.gen-btn{
-  display:inline-block;color:var(--orange);background:var(--sheet);
+  display:inline-block;color:var(--ink);background:var(--sheet);
   border:2px solid var(--ink);border-radius:6px;
   box-shadow:3px 3px 0 var(--ink);
   font:inherit;font-weight:700;letter-spacing:0.1em;text-decoration:none;text-align:center;
@@ -115,7 +115,7 @@ a.go.go-src{justify-self:start}
 a.go.go-paper{justify-self:end}
 a.go.go-explorer{display:block;width:fit-content;margin-top:0.85rem}
 
-a.plain{color:var(--ink);text-decoration:underline;text-decoration-color:var(--orange);
+a.plain{color:var(--ink);text-decoration:underline;text-decoration-color:var(--soft);
         text-decoration-thickness:2px;text-underline-offset:3px}
 a.plain:hover,a.plain:focus-visible{color:var(--green);text-decoration-color:var(--green);outline:none}
 
@@ -149,11 +149,11 @@ pre.dump{color:var(--ink);text-align:center;
   padding:2.6rem 1.1rem 1.1rem;margin:1.4rem auto 1.6rem;width:fit-content;max-width:100%}
 pre.dump .body{display:inline-block;text-align:left;line-height:1.18}
 pre.dump .t1{display:block;font-size:clamp(0.75rem,1.1vw,0.95rem);letter-spacing:0.12em;
-  line-height:1.4;color:var(--orange)}
+  line-height:1.4;color:var(--ink)}
 pre.dump .t2{display:block;font-size:clamp(0.55rem,0.75vw,0.7rem);letter-spacing:0.14em;
   line-height:1.4;margin-bottom:0.8rem;color:var(--quiet)}
 pre.dump .hex-line{display:block;padding:0 4px;transition:background .2s,color .2s}
-pre.dump .hex-line:hover{background:rgba(232,134,42,.18);color:var(--green);cursor:crosshair}
+pre.dump .hex-line:hover{background:rgba(31,122,58,.12);color:var(--green);cursor:crosshair}
 
 /* ---------- layout ---------- */
 .layout{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:3.2rem;margin-top:3.6rem;align-items:start}
@@ -162,7 +162,7 @@ pre.dump .hex-line:hover{background:rgba(232,134,42,.18);color:var(--green);curs
 .toc a{color:var(--quiet);text-decoration:none;font-size:0.8rem;letter-spacing:0.14em;
        padding:0.3rem 0;transition:color .2s}
 .toc a:hover{color:var(--green)}
-.toc a.active{color:var(--orange)}
+.toc a.active{color:var(--green)}
 .content{min-width:0}
 .content section{scroll-margin-top:1.6rem}
 .content > section:first-child h2{margin-top:0}
@@ -188,7 +188,7 @@ dl div{display:flex;gap:1.2rem;padding:0.65rem 0;border-bottom:1.5px dashed var(
 dt{color:var(--quiet);flex:0 0 14ch;font-size:0.95rem}
 dd{font-size:0.95rem;word-break:break-word}
 .cmds dt{color:var(--term);flex:0 0 22ch}
-.cmds h3{grid-column:1 / -1;font-size:0.86rem;letter-spacing:0.16em;color:var(--orange);margin:1.4rem 0 0.2rem}
+.cmds h3{grid-column:1 / -1;font-size:0.86rem;letter-spacing:0.16em;color:var(--ink);margin:1.4rem 0 0.2rem}
 .cmds h3:first-child{margin-top:0.6rem}
 .secret{color:#a3162a}
 
@@ -244,7 +244,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
   align-items:center;gap:8px;padding:0 10px;font-size:10px;background:#fbfbf8;transform:translateY(100%);transition:transform .3s}
 .mn-dlbar.on{transform:none}
 .mn-prog{flex:1;height:6px;border:1.2px solid #1c1c1c;border-radius:3px;overflow:hidden}
-.mn-prog b{display:block;height:100%;width:0;background:#e8862a;transition:width 1.6s linear}
+.mn-prog b{display:block;height:100%;width:0;background:#1f7a3a;transition:width 1.6s linear}
 .mn-files{display:flex;gap:22px;padding:18px 20px;flex-wrap:wrap}
 .mn-file{width:62px;text-align:center;font-size:9.5px;padding:4px;border-radius:3px}
 .mn-file.sel{background:#f6d3ad;outline:1.2px dashed #1c1c1c}
@@ -381,12 +381,7 @@ It has its own mining software.</p>
 
 <section id="start">
 <h2>START ON WINDOWS</h2>
-<ol class="steps">
-  <li>Download the <a class="plain" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a> and extract the ZIP file.</li>
-  <li>Double click moneu.exe. A window opens with MONEU blockchain running.</li>
-  <li>Wait for the node to fully sync. Check the sync level from time to time with <code>getblockcount</code> and compare the result with the <a class="plain" rel="noopener noreferrer external" href="https://explorer.moneu.cc">block explorer</a>.</li>
-  <li>When the node is synced type these commands in the moneu&gt; window.</li>
-</ol>
+<p>Download the <a class="plain" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a> and extract the ZIP file. Double click moneu.exe and a window opens with MONEU blockchain running. Wait for the node to fully sync. Check the sync level from time to time with <code>getblockcount</code> and compare the result with the <a class="plain" rel="noopener noreferrer external" href="https://explorer.moneu.cc">block explorer</a>. When the node is synced type these commands in the moneu&gt; window.</p>
 <pre translate="no" data-title="moneu.exe"><b>moneu&gt;</b> createwallet PASSWORD
 <b>moneu&gt;</b> makenoise PASSWORD
 <b>moneu&gt;</b> walletunlock PASSWORD
@@ -441,12 +436,7 @@ It has its own mining software.</p>
 <div class="os-row">
 <section id="win-install">
 <h2>INSTALL <span class="os">WINDOWS</span></h2>
-<ol class="steps">
-  <li>Download the <a class="plain" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a>.</li>
-  <li>Right click the ZIP file and choose Extract All.</li>
-  <li>Open the moneu folder and double click moneu.exe.</li>
-  <li>A window opens with MONEU blockchain running. Type the commands in the moneu&gt; window.</li>
-</ol>
+<p>Download the <a class="plain" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip">MONEU PACKAGE FOR WINDOWS x86_64</a>. Right click the ZIP file and choose Extract All. Open the moneu folder and double click moneu.exe. A window opens with MONEU blockchain running. Type the commands in the moneu&gt; window.</p>
 </section>
 
 <section id="install">
