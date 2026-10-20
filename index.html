@@ -23,7 +23,6 @@
 <meta name="twitter:description" content="The miner is part of the node. Mine on the computer you already own, with a processor or a graphics card.">
 <meta name="twitter:image" content="https://moneu.cc/logo.png">
 <style>
-/* ===== sketch style: paper, ink lines, orange lettering, green on hover ===== */
 :root{
   --paper:#efeee9;
   --sheet:#fbfbf8;
@@ -46,8 +45,6 @@ body{
 }
 .wrap{max-width:1440px;margin:0 auto;padding:2.6rem 2.5rem 7rem}
 
-/* ---------- top ---------- */
-/* hero band: the laptop drawing is the background, the text sits on top */
 .top{position:relative;overflow:hidden;
      width:100vw;margin-left:calc(50% - 50vw);margin-top:-2.6rem;margin-bottom:3rem;
      --hh:clamp(360px,28vw,420px);height:var(--hh);border-bottom:2px solid var(--rule);background:var(--paper)}
@@ -96,7 +93,6 @@ h2 .os{font-size:0.72rem;letter-spacing:0.14em;color:var(--ink);
 
 .cmdlabel{font-size:0.86rem;letter-spacing:0.14em;color:var(--quiet);margin:1.5rem 0 0.45rem}
 
-/* ---------- buttons: orange text, green ring + green text on hover ---------- */
 a.go,.copy-btn,.gen-btn{
   display:inline-block;color:var(--ink);background:var(--sheet);
   border:2px solid var(--ink);border-radius:6px;
@@ -125,7 +121,6 @@ a.plain:hover,a.plain:focus-visible{color:var(--green);text-decoration-color:var
 .forum{align-self:center;font-size:0.85rem;letter-spacing:0.14em}
 .stand{text-align:center;max-width:60ch;margin:1rem auto 0}
 
-/* ---------- terminal blocks look like the CMD window in the drawings ---------- */
 .code-wrapper{position:relative;margin:0.6rem 0 1.4rem}
 .code-wrapper pre{margin:0}
 pre{background:var(--sheet);color:var(--term);border:2px solid var(--ink);border-radius:6px;
@@ -141,7 +136,6 @@ pre b{color:var(--ink);font-weight:700}
 code{background:var(--sheet);border:1.5px solid var(--ink);border-radius:3px;
      padding:0.05em 0.35em;font-size:0.9em}
 
-/* genesis dump */
 .dump-wrapper{width:fit-content;max-width:100%;margin:1.4rem auto 1.6rem}
 .dump-wrapper pre.dump{margin:0}
 pre.dump{color:var(--ink);text-align:center;
@@ -155,7 +149,6 @@ pre.dump .t2{display:block;font-size:clamp(0.55rem,0.75vw,0.7rem);letter-spacing
 pre.dump .hex-line{display:block;padding:0 4px;transition:background .2s,color .2s}
 pre.dump .hex-line:hover{background:rgba(31,122,58,.12);color:var(--green);cursor:crosshair}
 
-/* ---------- layout ---------- */
 .layout{display:grid;grid-template-columns:12rem minmax(0,1fr);gap:3.2rem;margin-top:3.6rem;align-items:start}
 .toc{position:sticky;top:1.6rem;display:flex;flex-direction:column;gap:0.15rem;
      padding-left:0.9rem;border-left:2px solid var(--ink)}
@@ -168,7 +161,6 @@ pre.dump .hex-line:hover{background:rgba(31,122,58,.12);color:var(--green);curso
 .content > section:first-child h2{margin-top:0}
 .content p{max-width:72ch}
 
-/* Windows | Linux side by side */
 .os-head{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.6rem;margin-top:3.6rem}
 .os-head div{text-align:center;font-size:1.05rem;letter-spacing:0.3em;padding:0.55rem;
   border:2px solid var(--ink);border-radius:6px;background:var(--sheet);box-shadow:3px 3px 0 var(--ink)}
@@ -198,14 +190,12 @@ dd{font-size:0.95rem;word-break:break-word}
 footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
        color:var(--quiet);font-size:0.92rem;text-align:center}
 
-/* bouncing coins */
 .coin{position:fixed;left:0;top:0;width:28px;height:28px;pointer-events:none;
       will-change:transform;z-index:-1;opacity:0;transition:opacity .9s ease}
 .coin.on{opacity:1}
 .coin img{width:100%;height:100%;display:block;animation:coinspin 6s linear infinite}
 @keyframes coinspin{to{transform:rotate(360deg)}}
 
-/* ---------- laptop: coins take on colour ---------- */
 @property --moneu-r{syntax:'<percentage>';inherits:false;initial-value:0%}
 .moneu-reveal .moneu-color{--moneu-r:0%;opacity:0;
   -webkit-mask-image:radial-gradient(ellipse at 46.5% 38%,#000 var(--moneu-r),transparent calc(var(--moneu-r) + 8%));
@@ -217,12 +207,10 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
 .moneu-reveal.is-on::after{animation:moneu-glow 3.2s ease-out .4s forwards}
 @keyframes moneu-glow{0%{opacity:0;transform:scale(.6)}40%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
 
-/* ---------- monitor: how to start on Windows ---------- */
-.mn-monitor{position:relative;max-width:935px;width:85%;margin:0 auto;aspect-ratio:1200/900;
-  border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#e9e8e3}
+.mn-monitor{position:relative;max-width:935px;width:85%;margin:1.6rem auto 0;aspect-ratio:1200/900}
 .mn-monitor>img{position:absolute;inset:0;width:100%;height:100%;display:block}
-.mn-screen{position:absolute;left:14.2%;top:12%;width:71.6%;height:56%;overflow:hidden;
-  border-radius:1.6% / 2.6%;background:#f3f3ee}
+.mn-screen{position:absolute;left:10.05%;top:6.85%;width:80.1%;height:64.1%;overflow:hidden;
+  border-radius:1.8% / 3%;background:#f7f7f3}
 .mn-stage{position:absolute;left:0;top:0;width:480px;height:282px;transform-origin:0 0;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:400;
   line-height:1.3;color:#1c1c1c}
@@ -261,6 +249,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
   font:12px/1.45 "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;color:#2a6a2c;white-space:pre}
 .mn-out .p{color:#1c1c1c}
 .mn-out .ok{color:#c0661c}
+.mn-out .info{color:#2b5f9e;font-weight:700}
 .mn-out .hd{font-weight:700}
 .mn-caret{display:inline-block;width:7px;height:13px;background:#2a6a2c;vertical-align:-2px;animation:mn-blink 1s steps(1) infinite}
 @keyframes mn-blink{50%{opacity:0}}
@@ -269,7 +258,28 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
 .mn-cursor.click svg{transform:scale(.85)}
 .mn-cursor svg{transition:transform .08s;transform-origin:0 0}
 
-/* ---------- responsive ---------- */
+@property --retro-r{syntax:'<percentage>';inherits:false;initial-value:0%}
+.retro{position:relative;max-width:760px;width:90%;margin:5rem auto 0;aspect-ratio:1200/700;cursor:pointer}
+.retro>img{position:absolute;inset:0;width:100%;height:100%;display:block;color:transparent;font-size:0}
+.retro-screen{position:absolute;left:29.3%;top:10.3%;width:41.4%;height:45.2%;border-radius:6.6% / 10.4%;
+  overflow:hidden;container-type:inline-size;background:#f7f7f3}
+.retro-screen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#173225 0%,#0d1c15 70%,#08120d 100%);
+  --retro-r:0%;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 var(--retro-r),transparent calc(var(--retro-r) + 10%));
+          mask-image:radial-gradient(ellipse at 50% 50%,#000 var(--retro-r),transparent calc(var(--retro-r) + 10%))}
+.retro-screen::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px)}
+.retro-text{position:relative;z-index:1;margin:0;padding:9cqw 8cqw;font-size:5cqw;line-height:1.45;
+  color:var(--ink);transition:color 1.4s ease 1.2s,text-shadow 1.4s ease 1.2s}
+.retro-text b{transition:color 1.4s ease 1.2s}
+.retro-cur{display:inline-block;width:0.6em;height:1.05em;vertical-align:-0.15em;background:currentColor;opacity:0}
+.retro.is-on .retro-screen::before{animation:retro-on 2.6s cubic-bezier(.4,0,.2,1) .2s forwards}
+.retro.is-on .retro-screen::after{opacity:1;transition:opacity 1s ease 1.6s}
+.retro.is-on .retro-text{color:#7cf0a4;text-shadow:0 0 6px rgba(124,240,164,.55)}
+.retro.is-on .retro-text b{color:#f2a24a}
+.retro.is-on .retro-cur{opacity:1;animation:mn-blink 1s steps(1) 2.8s infinite}
+@keyframes retro-on{to{--retro-r:120%}}
+
 @media (max-width:1180px){
   .layout{grid-template-columns:minmax(0,1fr);gap:0;margin-top:2.6rem}
   .toc{display:none}
@@ -300,6 +310,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
   body{font-size:16px}
   .wrap{padding:2rem 5% 4.5rem}
   .top{margin-top:-2rem}
+  .retro{width:112%;margin-left:-6%;margin-top:3.5rem}
   .wordmark{letter-spacing:0.22em}
   .top .wordmark{padding-left:0.22em}
   dl div{flex-direction:column;gap:0}
@@ -317,6 +328,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
     transition-duration:0.01ms !important}
   html{scroll-behavior:auto}
   .moneu-reveal .moneu-color{opacity:1;--moneu-r:100%}
+  .retro .retro-screen::before{--retro-r:120%}
 }
 </style>
 </head>
@@ -390,7 +402,7 @@ It has its own mining software.</p>
 <figure class="mn-monitor" id="mnMonitor" aria-label="How to download and run a MONEU node on Windows">
   <img src="moneu_monitor.webp" alt="Monitor showing how to download and run a MONEU node" width="1200" height="900">
   <div class="mn-screen" aria-hidden="true"><div class="mn-stage">
-    <div class="mn-win" id="mnBrowser" style="left:0;top:0;width:478px;height:280px;border-radius:0">
+    <div class="mn-win" id="mnBrowser" style="left:0;top:0;width:480px;height:282px;border:0;border-radius:0;box-shadow:none">
       <div class="mn-bar">moneu.cc<span class="mn-btns"><i></i><i></i><i></i></span></div>
       <div class="mn-url">https://moneu.cc</div>
       <div class="mn-page">
@@ -669,6 +681,13 @@ logips=false</pre>
 </main>
 </div>
 
+<figure class="retro" id="retro" aria-label="Official website of MONEU">
+  <img src="moneu_retro.webp" alt="An old computer from the eighties" width="1200" height="700">
+  <div class="retro-screen">
+    <p class="retro-text">Official website of <b translate="no">MONEU</b>.<br>The Post-Quantum proof of work blockchain secured by OTPleaf technology.<span class="retro-cur"></span></p>
+  </div>
+</figure>
+
 <footer>
 Keep a copy of your wallet folder on a separate drive.<br>
 <a class="plain" href="privacy.html">Privacy</a>
@@ -679,7 +698,6 @@ Keep a copy of your wallet folder on a separate drive.<br>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // COPY button on every command block except the genesis dump
   document.querySelectorAll('pre').forEach((pre) => {
     if (pre.classList.contains('dump')) return;
     const wrapper = document.createElement('div');
@@ -699,7 +717,6 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.appendChild(btn);
   });
 
-  // Genesis dump: per line highlight plus a COPY button for the whole thing
   const dump = document.querySelector('pre.dump');
   const dumpBody = dump ? dump.querySelector('.body') : null;
   if (dump && dumpBody) {
@@ -723,7 +740,6 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.appendChild(btn);
   }
 
-  // Random RPC password, generated in the browser
   const genBtn = document.getElementById('genPasswordBtn');
   const passVal = document.getElementById('rpcPassVal');
   if (genBtn && passVal) {
@@ -737,7 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Highlight the section being read in the side index
   const tocLinks = document.querySelectorAll('.toc a');
   if (tocLinks.length && 'IntersectionObserver' in window) {
     const byId = {};
@@ -756,7 +771,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Laptop: the coins on the screen take on colour
+  const retro = document.getElementById('retro');
+  if (retro) {
+    if (calm || !('IntersectionObserver' in window)) { retro.classList.add('is-on'); }
+    else {
+      const rio = new IntersectionObserver((e) => {
+        if (e[0].isIntersecting) { retro.classList.add('is-on'); rio.disconnect(); }
+      }, { threshold: 0.5 });
+      rio.observe(retro);
+    }
+    retro.addEventListener('click', () => {
+      retro.classList.remove('is-on'); void retro.offsetWidth; retro.classList.add('is-on');
+    });
+  }
+
   const reveal = document.getElementById('moneuReveal');
   if (reveal) {
     if (calm || !('IntersectionObserver' in window)) { reveal.classList.add('is-on'); }
@@ -771,7 +799,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Monitor: download, unzip, run moneu.exe, type the commands
   (function () {
     const root = document.getElementById('mnMonitor'); if (!root) return;
     const screen = root.querySelector('.mn-screen'), stage = root.querySelector('.mn-stage');
@@ -834,7 +861,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $('mnFiles').innerHTML = file('exe', 'moneu.exe'); await wait(700);
 
       await move(88, 98); await click(2); $('mnFiles').firstChild.classList.add('sel'); await wait(400);
-      show('mnCmd', true); await move(440, 262, 700);
+      show('mnCmd', true); show('mnBrowser', false); show('mnExplorer', false); await move(440, 262, 700);
       line('<span class="hd">MONEU blockchain running</span>'); await wait(900);
       line(''); line('<span class="ok">Wait for the node to fully sync.</span>'); await wait(900);
       line('Check the sync level from time to time'); await wait(700);
@@ -842,7 +869,17 @@ document.addEventListener('DOMContentLoaded', () => {
       line('with the block explorer.'); await wait(900);
       line('');
       await type('getblockcount'); line('BLOCK HEIGHT'); await wait(900);
-      line('<span class="ok">same height as explorer.moneu.cc = synced</span>'); await wait(400);
+      line('<span class="ok">same height as explorer.moneu.cc = synced</span>'); await wait(1200);
+      await type('createwallet PASSWORD');   line('<span class="ok">wallet created</span>'); await wait(700);
+      await type('makenoise PASSWORD');
+      line('<span class="info">This can take one to three minutes.</span>'); await wait(900);
+      line('<span class="info">Do not turn off your computer.</span>'); await wait(900);
+      line('<span class="info">Your OTPleaf shield is being made</span>'); await wait(600);
+      line('<span class="info">for you.</span>'); await wait(2200);
+      line('<span class="ok">noise file created</span>'); await wait(700);
+      await type('walletunlock PASSWORD');   line('<span class="ok">wallet unlocked</span>'); await wait(700);
+      await type('getnewaddress');           line('ADDRESS'); await wait(800);
+      await type('startmining ADDRESS 4');   line('<span class="ok">mining on the CPU with 4 threads</span>'); await wait(500);
       line('<span class="p">moneu&gt; </span><span class="mn-caret"></span>');
       await wait(7000);
     };
@@ -854,9 +891,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else { go(); }
   })();
 
-  // MONEU coins bouncing around the whole screen, off the buttons and off
-  // each other, slowly and behind the text. Three to six of them, three or four on
-  // a phone, and a different number now and then.
   if (!calm) {
     const size = 28;
     const wide = document.documentElement.clientWidth;
