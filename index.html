@@ -345,6 +345,46 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
   .moneu-reveal .moneu-color{opacity:1;--moneu-r:100%}
   .retro .retro-grid i{opacity:1}
 }
+
+.pull{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:2.4rem}
+.pull-line{width:100%;height:2px;background:var(--ink)}
+.pull-tab{position:relative;z-index:2;margin-top:-2px;display:inline-flex;flex-direction:column;align-items:center;gap:0.15rem;padding:0.6rem 3.2rem 0.7rem;background:none;border:0;color:var(--ink);font:inherit;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;cursor:pointer;isolation:isolate;transition:color .2s ease}
+.pull-tab::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--sheet);border:2px solid var(--ink);border-top:0;border-radius:0 0 12px 12px;transform:perspective(60px) rotateX(-5deg);transform-origin:top;filter:drop-shadow(0 6px 8px rgba(0,0,0,.10));transition:transform .25s ease}
+.pull-tab:hover::before,.pull-tab:focus-visible::before{transform:perspective(60px) rotateX(-5deg) scaleY(1.12)}
+.pull-tab:hover,.pull-tab:focus-visible{color:var(--green);outline:none}
+.pull-chev{color:inherit;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.pull-drawer{width:100%;display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1)}
+.pull-drawer.open{grid-template-rows:1fr}
+.pull-inner{overflow:hidden;min-height:0}
+.pull-drawer.shown .pull-inner{overflow:visible}
+.pull-card{margin-top:1.2rem;border:2px solid var(--ink);border-radius:16px;background:var(--paper);
+  padding:1.8rem;box-shadow:0 10px 22px -8px rgba(0,0,0,.12)}
+.pull-card .layout{margin-top:0}
+@media(max-width:860px){.pull-tab{padding:0.6rem 2rem 0.7rem;letter-spacing:0.14em}.pull-card{padding:1.2rem 0.9rem}}
+@media(prefers-reduced-motion:reduce){.pull-drawer,.pull-chev,.pull-tab{transition:none}}
+.pull-hint{color:inherit}
+@media(max-width:560px){.pull-label{text-align:center}}
+
+.to-top-row{display:flex;justify-content:flex-end;margin-top:1.4rem;padding-right:1.2rem}
+.to-top{position:relative;display:inline-block;padding:0.85rem 1.35rem;background:var(--sheet);color:var(--ink);
+  border:3px solid var(--ink);border-radius:50%;font-weight:900;font-size:0.82rem;letter-spacing:0.08em;
+  text-decoration:none;transform:rotate(-4deg);transition:transform .2s ease,color .2s ease}
+.to-top::before{content:"";position:absolute;left:18%;bottom:-17px;border-style:solid;border-width:17px 4px 0 14px;
+  border-color:var(--ink) transparent transparent transparent;transform:skewX(-18deg)}
+.to-top::after{content:"";position:absolute;left:calc(18% + 4px);bottom:-10px;border-style:solid;border-width:11px 2px 0 8px;
+  border-color:var(--sheet) transparent transparent transparent;transform:skewX(-18deg)}
+.to-top:hover,.to-top:focus-visible{color:var(--green);transform:rotate(-4deg) scale(1.06);outline:none}
+
+a.go.go-pkg:not(.go-report){background:#6af305;color:var(--ink);border-color:var(--ink)}
+a.go.go-src{background:#02c5f9;color:var(--ink);border-color:var(--ink)}
+a.go.go-report{background:#f324b4;color:var(--ink);border-color:var(--ink)}
+a.go.go-explorer{background:#f324b4;color:var(--ink);border-color:var(--ink)}
+a.go.go-explorer:hover,a.go.go-explorer:focus-visible{color:var(--ink);border-color:var(--ink);filter:brightness(1.08)}
+.to-top{background:#6af305}
+.to-top::after{border-top-color:#6af305}
+.to-top:hover,.to-top:focus-visible{color:var(--ink)}
+a.go.go-src:hover,a.go.go-src:focus-visible,a.go.go-pkg:hover,a.go.go-pkg:focus-visible{
+  color:var(--ink);border-color:var(--ink);filter:brightness(1.08)}
 </style>
 </head>
 <body>
@@ -379,7 +419,7 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
 <div class="pkgs">
 <a class="go go-pkg" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_linux/raw/52c25b0c2479d58d0a168e9fa308681b839d1310/moneu-0.2.3-linux-x86_64.tar.gz" data-i18n="pkg_linux">MONEU PACKAGE FOR LINUX x86_64</a>
 <a class="go go-pkg go-win" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU_windows/raw/362931c2da419c15b892853845a2ccd06f751e30/moneu-0.2.3-windows-x86_64.zip" data-i18n="pkg_win">MONEU PACKAGE FOR WINDOWS x86_64</a>
-<a class="go go-pkg go-report" target="_blank" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU-Website/raw/main/MONEU-Security-Analysis.pdf" style="background:#f4c430;border-color:#1c1c1c;box-shadow:3px 3px 0 #1c1c1c">SECURITY ANALYSIS</a>
+<a class="go go-pkg go-report" target="_blank" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU-Website/raw/main/MONEU-Security-Analysis.pdf">SECURITY ANALYSIS</a>
 <a class="plain forum" rel="noopener noreferrer external" href="https://bitcointalk.org/index.php?topic=5592489.0;all" data-i18n="forum" style="margin-top:0.9rem">BITCOINTALK FORUM</a>
 </div>
 <a class="go go-paper" rel="noopener noreferrer external" href="https://github.com/natusor/MONEU/blob/main/MONEU-White-Paper_EN.md" data-i18n="paper">WHITE PAPER</a>
@@ -387,6 +427,11 @@ footer{margin-top:4.5rem;padding-top:1.2rem;border-top:2px solid var(--ink);
 
 <p class="stand" data-i18n="stand">Run a full node on your computer and start mining coins.<br>It has its own mining software.</p>
 
+<div class="pull">
+<div class="pull-line"></div>
+<button type="button" class="pull-tab" id="pullTab" aria-expanded="false" aria-controls="pullDrawer"><span class="pull-label"><span>INSTRUCTIONS AND COMMANDS</span> <span class="pull-hint" id="pullHint">EXPAND</span></span><svg class="pull-chev" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 5h11L8 12z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></button>
+<div class="pull-drawer" id="pullDrawer"><div class="pull-inner" inert>
+<div class="pull-card">
 <div class="layout">
 
 <nav class="toc" aria-label="Sections">
@@ -710,6 +755,9 @@ logips=false</pre>
 
 </main>
 </div>
+</div>
+</div></div>
+</div>
 
 <figure class="retro" id="retro" aria-label="Official website of MONEU">
   <img src="moneu_retro.webp" alt="An old computer from the eighties" width="1200" height="700">
@@ -722,6 +770,7 @@ logips=false</pre>
 <footer data-i18n="footer">Keep a copy of your wallet folder on a separate drive.<br>
 <a class="plain" href="privacy.html">Privacy</a>
 </footer>
+<div class="to-top-row"><a class="to-top" id="toTop" href="#">BACK TO TOP!</a></div>
 
 </div>
 
@@ -1110,6 +1159,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+</script>
+<script>
+(function(){
+  var tab=document.getElementById('pullTab'),dr=document.getElementById('pullDrawer');
+  if(!tab||!dr)return;
+  var inner=dr.firstElementChild;
+  function set(open){
+    tab.setAttribute('aria-expanded',open?'true':'false');
+    if(open){inner.removeAttribute('inert');dr.classList.add('open');}
+    else{dr.classList.remove('shown');dr.classList.remove('open');inner.setAttribute('inert','');}
+  }
+  dr.addEventListener('transitionend',function(e){
+    if(e.target===dr&&dr.classList.contains('open'))dr.classList.add('shown');
+  });
+  tab.addEventListener('click',function(){set(tab.getAttribute('aria-expanded')!=='true');});
+  if(location.hash.length>1){var t=document.getElementById(location.hash.slice(1));
+    if(t&&dr.contains(t)){set(true);dr.classList.add('shown');setTimeout(function(){t.scrollIntoView();},500);}}
+})();
+</script>
+<script>
+(function(){var a=document.getElementById('toTop');if(!a)return;
+a.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});})();
 </script>
 </body>
 </html>
